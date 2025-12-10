@@ -1,5 +1,5 @@
 // Fallback for Next pages dir (keeps compatibility if needed)
-import "../public/env.js";
+// env.js is loaded via script tag in HTML pages, not imported here
 
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
