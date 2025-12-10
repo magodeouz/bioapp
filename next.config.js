@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      // Public bio page: /username -> /profile/index.html
-      { source: "/:username", destination: "/profile/index.html" },
-    ];
-  },
+  // Vercel handles rewrites via vercel.json
+  // Static HTML files in public/ are served automatically
 };
 
 export default nextConfig;
