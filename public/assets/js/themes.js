@@ -464,7 +464,7 @@ function bindSettings() {
   const fileInput = document.getElementById("background-image-file");
   const successEl = document.getElementById("bg-image-success");
   
-  console.log("Setting up upload button:", { uploadBtn, fileInput, preview });
+  console.log("Setting up upload button:", { uploadBtn, fileInput });
   
   if (uploadBtn && fileInput) {
     console.log("Upload button and file input found, adding listeners");
