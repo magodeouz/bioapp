@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tema Yönetimi - BioFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": {
+              DEFAULT: "#4F46E5",
+              light: "#6366F1",
+            },
+            "background-light": "#f7f8fa",
+            "background-dark": "#0f172a",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1e293b",
+            "copy-light": "#0f172a",
+            "copy-dark": "#f1f5f9",
+            "copy-light-secondary": "#64748b",
+            "copy-dark-secondary": "#94a3b8",
+            "border-light": "#e2e8f0",
+            "border-dark": "#334155"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.75rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .bg-vibrant-gradient {
+      background-image: linear-gradient(135deg, #818CF8 0%, #4F46E5 50%, #3730A3 100%);
+    }
+    .vibrant-gradient-bg {
+      background: linear-gradient(135deg, #4F46E5 0%, #A855F7 50%, #EC4899 100%);
+    }
+    .text-vibrant-gradient {
+      background: linear-gradient(135deg, #818CF8 0%, #4F46E5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .ring-primary {
+      --tw-ring-color: var(--tw-color-primary-DEFAULT);
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-copy-light dark:text-copy-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex h-full grow">
+<aside class="flex h-screen min-h-[700px] flex-col justify-between border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-4 w-64 fixed">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-3">
+<div class="size-8 text-vibrant-gradient">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h1 class="text-copy-light dark:text-copy-dark text-base font-bold leading-normal">BioFlow</h1>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-sm font-normal leading-normal">SaaS Platform</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="/dashboard/index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="/links/index.html">
+<span class="material-symbols-outlined">link</span>
+<p class="text-sm font-medium leading-normal">Links</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-indigo-100 dark:bg-indigo-500/20 text-primary dark:text-indigo-300" href="/themes/manage.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">palette</span>
+<p class="text-sm font-medium leading-normal">Theme</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="/settings/index.html">
+<span class="material-symbols-outlined">toggle_on</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="#" data-logout>
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<main class="flex-1 ml-64 p-8">
+<div class="w-full max-w-7xl mx-auto">
+<header class="mb-6">
+<div class="flex items-center justify-between gap-4">
+<div>
+<h1 class="text-copy-light dark:text-copy-dark text-3xl font-bold leading-tight tracking-tight">Appearance & Links</h1>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-normal leading-normal">Manage your links and customize your bio page in one place.</p>
+</div>
+<div class="flex items-center gap-3">
+<button id="discard-btn" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-slate-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal tracking-wide hover:bg-slate-200 dark:hover:bg-slate-700">
+<span>Discard</span>
+</button>
+<button id="save-btn" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-vibrant-gradient text-white text-sm font-medium leading-normal tracking-wide shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity">
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+
+<!-- Tabs -->
+<div class="mt-6 flex items-center gap-2 border-b border-border-light dark:border-border-dark">
+<button data-tab="links" class="tab-btn px-4 py-2 text-sm font-semibold rounded-t-lg bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark border-b-transparent text-primary">Links</button>
+<button data-tab="theme" class="tab-btn px-4 py-2 text-sm font-semibold rounded-t-lg text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark">Theme</button>
+</div>
+</header>
+
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-8">
+<!-- Links Tab -->
+<div id="tab-links" class="tab-panel bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
+<h2 class="text-lg font-semibold text-copy-light dark:text-copy-dark mb-6">Manage Links</h2>
+<div class="space-y-6">
+<form id="link-form" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end bg-white/80 dark:bg-gray-900/60 p-4 rounded-xl border border-border-light dark:border-border-dark shadow-sm">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-copy-light-secondary dark:text-copy-dark-secondary">Başlık</span>
+<input id="link-title" class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-copy-light dark:text-copy-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-slate-800 h-11 px-4 text-base font-normal leading-normal transition-colors" placeholder="Örn. Portfolio"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium text-copy-light-secondary dark:text-copy-dark-secondary">URL</span>
+<input id="link-url" class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-copy-light dark:text-copy-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-slate-800 h-11 px-4 text-base font-normal leading-normal transition-colors" placeholder="https://..."/>
+</label>
+<div class="flex items-center gap-3">
+<label class="flex-1">
+<span class="text-sm font-medium text-copy-light-secondary dark:text-copy-dark-secondary">Vurgu</span>
+<select id="link-accent" class="w-full rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-slate-800 h-11 px-4">
+<option value="primary">Öne Çıkan</option>
+<option value="secondary">Normal</option>
+</select>
+</label>
+<button id="link-submit" class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-11 px-5 bg-vibrant-gradient text-white text-sm font-bold leading-normal tracking-wide hover:opacity-90 transition-all duration-300 shadow-lg shadow-indigo-500/30">
+<span class="truncate">Link Ekle</span>
+</button>
+</div>
+</form>
+<div id="links-list" class="space-y-4"></div>
+</div>
+</div>
+
+<!-- Theme Tab -->
+<div id="tab-theme" class="tab-panel hidden bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-lg font-semibold text-copy-light dark:text-copy-dark">Manual Settings</h2>
+<p class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Değişiklikler canlı ön izlemede anında görünür.</p>
+</div>
+<div class="space-y-7">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Background Color</label>
+<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Düz renk veya degrade seç.</span>
+</div>
+<div class="flex flex-wrap gap-3">
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: rgb(248, 250, 252);" data-bg-color="#f8fafc">
+<input class="invisible" name="background-color" type="radio" value="#f8fafc"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: rgb(26, 26, 26);" data-bg-color="#1a1a1a">
+<input class="invisible" name="background-color" type="radio" value="#1a1a1a"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-image: linear-gradient(to right, #f97794 0%, #623aa2 100%);" data-bg-color="gradient">
+<input class="invisible" name="background-color" type="radio" value="gradient"/>
+</label>
+<div class="relative">
+<button id="add-bg-color" class="size-8 rounded-full border border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:border-slate-400 dark:hover:border-slate-500"><span class="material-symbols-outlined text-base">add</span></button>
+<input type="color" id="custom-bg-color" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-28 h-10 rounded-lg border border-border-light dark:border-border-dark shadow-lg bg-white dark:bg-slate-800 cursor-pointer"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Background Image</label>
+<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">URL, preset veya lokal yükleme.</span>
+</div>
+<div class="flex flex-col gap-3 w-full max-w-xs">
+<div class="flex items-center gap-3">
+<input type="file" id="background-image-file" accept="image/*" class="hidden"/>
+<button type="button" id="upload-bg-image-btn" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-border-light dark:border-border-dark bg-transparent text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-base align-middle">upload</span>
+<span>Upload</span>
+</button>
+<span id="bg-image-success" class="text-xs text-emerald-600 dark:text-emerald-400 font-medium hidden">Arka plan yüklendi ✓</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Button Color</label>
+<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Düz renk veya gradient.</span>
+</div>
+<div class="flex flex-wrap gap-3">
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: #4F46E5;" data-button-color="#4F46E5">
+<input class="invisible" name="button-color" type="radio" value="#4F46E5"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: rgb(26, 26, 26);" data-button-color="#1a1a1a">
+<input class="invisible" name="button-color" type="radio" value="#1a1a1a"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: rgb(255, 255, 255);" data-button-color="#ffffff">
+<input class="invisible" name="button-color" type="radio" value="#ffffff"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer bg-vibrant-gradient" data-button-color="gradient">
+<input class="invisible" name="button-color" type="radio" value="gradient"/>
+</label>
+<div class="relative">
+<button id="add-button-color" class="size-8 rounded-full border border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:border-slate-400 dark:hover:border-slate-500"><span class="material-symbols-outlined text-base">add</span></button>
+<input type="color" id="custom-button-color" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-28 h-10 rounded-lg border border-border-light dark:border-border-dark shadow-lg bg-white dark:bg-slate-800 cursor-pointer"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Text Color</label>
+<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Başlık, bio ve buton metni.</span>
+</div>
+<div class="flex flex-wrap gap-3">
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: rgb(249, 249, 251);" data-text-color="#f9f9fb">
+<input class="invisible" name="text-color" type="radio" value="#f9f9fb"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: rgb(26, 26, 26);" data-text-color="#1a1a1a">
+<input class="invisible" name="text-color" type="radio" value="#1a1a1a"/>
+</label>
+<div class="relative">
+<button id="add-text-color" class="size-8 rounded-full border border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:border-slate-400 dark:hover:border-slate-500"><span class="material-symbols-outlined text-base">add</span></button>
+<input type="color" id="custom-text-color" class="hidden absolute left-1/2 -translate-x-1/2 mt-2 w-28 h-10 rounded-lg border border-border-light dark:border-border-dark shadow-lg bg-white dark:bg-slate-800 cursor-pointer"/>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Font Family</label>
+<select id="font-family" class="rounded-full border-border-light dark:border-border-dark bg-transparent dark:text-copy-dark text-sm focus:border-primary focus:ring-primary">
+<option value="Inter">Inter</option>
+<option value="Poppins">Poppins</option>
+<option value="Lato">Lato</option>
+<option value="Roboto">Roboto</option>
+<option value="Open Sans">Open Sans</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Button Shape</label>
+<div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
+<button data-shape="rounded" class="px-3 py-1 text-sm rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"><span class="material-symbols-outlined text-lg">crop_16_9</span></button>
+<button data-shape="pill" class="px-3 py-1 text-sm rounded-full bg-white dark:bg-slate-700 text-primary dark:text-white shadow-sm"><span class="material-symbols-outlined text-lg">rounded_corner</span></button>
+<button data-shape="circle" class="px-3 py-1 text-sm rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"><span class="material-symbols-outlined text-lg">circle</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Mode</label>
+<div class="flex items-center p-1 rounded-full bg-slate-100 dark:bg-slate-800">
+<button data-mode="light" class="flex items-center gap-2 px-3 py-1 text-sm rounded-full bg-white dark:bg-slate-700 text-primary dark:text-white shadow-sm"><span class="material-symbols-outlined text-base">light_mode</span> Light</button>
+<button data-mode="dark" class="flex items-center gap-2 px-3 py-1 text-sm rounded-full text-slate-500 dark:text-slate-400"><span class="material-symbols-outlined text-base">dark_mode</span> Dark</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7">
+<div class="sticky top-8">
+<div class="bg-slate-200/50 dark:bg-slate-800/20 p-6 rounded-xl flex items-center justify-center">
+<div class="bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl shadow-slate-200 dark:shadow-slate-900/50 p-2 border-4 border-slate-300 dark:border-slate-700">
+<div id="preview-wrapper" class="relative w-[375px] h-[800px] rounded-[2rem] overflow-hidden" style="aspect-ratio: 9/16;">
+<div id="preview-background-overlay" class="absolute inset-0 z-0" style="background-size: cover; background-position: center;"></div>
+<div class="relative z-10 flex h-full w-full flex-col items-center justify-start overflow-y-auto p-4 sm:p-6">
+<div class="w-full max-w-md mx-auto">
+<header class="flex w-full flex-col items-center gap-6 text-center mb-8 pt-4">
+<div id="preview-avatar" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 ring-4 ring-white/80 dark:ring-slate-700/80 shadow-2xl"></div>
+<div class="flex flex-col items-center justify-center gap-2">
+<h1 id="preview-username" class="text-white text-3xl font-bold leading-tight tracking-tight drop-shadow-lg"></h1>
+<p id="preview-bio" class="text-white/90 text-base font-normal leading-normal drop-shadow-md"></p>
+</div>
+</header>
+<section class="mb-6 flex justify-center">
+<div id="preview-social-links" class="flex gap-4"></div>
+</section>
+<main class="flex flex-col gap-4 flex-1 w-full">
+<div id="preview-links" class="flex w-full flex-col items-stretch gap-3"></div>
+<div class="w-full">
+<div id="preview-highlight-card" class="flex flex-col items-stretch justify-start rounded-xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm shadow-xl border border-white/20 @container sm:flex-row sm:items-start p-5 hidden">
+<div class="flex w-full min-w-0 grow flex-col items-stretch justify-center gap-2 sm:px-2">
+<p class="text-primary dark:text-indigo-400 text-sm font-bold leading-normal tracking-wide">DUYURU</p>
+<p id="preview-highlight-title" class="text-[#111618] dark:text-white text-lg font-bold leading-tight tracking-tight"></p>
+<div class="flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
+<p id="preview-highlight-body" class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal"></p>
+<a id="preview-highlight-link" class="flex-shrink-0 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-9 px-4 bg-primary text-white text-sm font-medium leading-normal transition-opacity hover:opacity-90" href="#" target="_blank" rel="noopener">
+<span class="truncate">Daha Fazla Bilgi Al</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto mb-4 text-center">
+<a class="text-sm text-white/80 hover:text-white transition-colors drop-shadow-md" href="#">Powered by <span class="font-bold">BioFlow</span></a>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+<script src="/env.js"></script>
+<script type="module" src="/assets/js/navigation.js"></script>
+<script type="module" src="/assets/js/links.js"></script>
+<script type="module" src="/assets/js/themes.js"></script>
+<script>
+// Tab switching
+document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll(".tab-btn");
+  const panels = {
+    links: document.getElementById("tab-links"),
+    theme: document.getElementById("tab-theme"),
+  };
+  tabs.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabs.forEach((b) => b.classList.remove("bg-white", "dark:bg-surface-dark", "border", "border-border-light", "dark:border-border-dark", "border-b-transparent", "text-primary"));
+      btn.classList.add("bg-white", "dark:bg-surface-dark", "border", "border-border-light", "dark:border-border-dark", "border-b-transparent", "text-primary");
+      if (btn.dataset.tab === "links") {
+        panels.links.classList.remove("hidden");
+        panels.theme.classList.add("hidden");
+      } else {
+        panels.theme.classList.remove("hidden");
+        panels.links.classList.add("hidden");
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

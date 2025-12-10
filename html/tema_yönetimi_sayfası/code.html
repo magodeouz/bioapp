@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tema Yönetimi Sayfası</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": {
+              DEFAULT: "#4F46E5",
+              light: "#6366F1",
+            },
+            "background-light": "#f7f8fa",
+            "background-dark": "#0f172a",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1e293b",
+            "copy-light": "#0f172a",
+            "copy-dark": "#f1f5f9",
+            "copy-light-secondary": "#64748b",
+            "copy-dark-secondary": "#94a3b8",
+            "border-light": "#e2e8f0",
+            "border-dark": "#334155"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.75rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .bg-vibrant-gradient {
+      background-image: linear-gradient(135deg, #818CF8 0%, #4F46E5 50%, #3730A3 100%);
+    }
+    .text-vibrant-gradient {
+      background: linear-gradient(135deg, #818CF8 0%, #4F46E5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .ring-primary {
+      --tw-ring-color: var(--tw-color-primary-DEFAULT);
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-copy-light dark:text-copy-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex h-full grow">
+<aside class="flex h-screen min-h-[700px] flex-col justify-between border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-4 w-64 fixed">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-3">
+<div class="size-8 text-vibrant-gradient">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h1 class="text-copy-light dark:text-copy-dark text-base font-bold leading-normal">BioFlow</h1>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-sm font-normal leading-normal">SaaS Platform</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="#">
+<span class="material-symbols-outlined">link</span>
+<p class="text-sm font-medium leading-normal">Links</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Analytics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-indigo-100 dark:bg-indigo-500/20 text-primary dark:text-indigo-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">palette</span>
+<p class="text-sm font-medium leading-normal">Theme</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="#">
+<span class="material-symbols-outlined">toggle_on</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<main class="flex-1 ml-64 p-8">
+<div class="w-full max-w-7xl mx-auto">
+<header class="flex flex-wrap justify-between gap-4 items-center mb-8">
+<div class="flex flex-col gap-1">
+<h1 class="text-copy-light dark:text-copy-dark text-3xl font-bold leading-tight tracking-tight">Theme Management</h1>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-normal leading-normal">Customize the appearance of your bio link page.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-slate-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal tracking-wide hover:bg-slate-200 dark:hover:bg-slate-700">
+<span>Discard</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-vibrant-gradient text-white text-sm font-medium leading-normal tracking-wide shadow-lg shadow-indigo-500/30 hover:opacity-90 transition-opacity">
+<span>Save Changes</span>
+</button>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-8">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
+<h2 class="text-lg font-semibold text-copy-light dark:text-copy-dark mb-6">Manual Settings</h2>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<label class="text-sm text-copy-light-secondary dark:text-copy-dark-secondary">Background Color</label>
+<div class="flex flex-wrap gap-3">
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-primary has-[:checked]:border-surface-light" style="background-color: rgb(248, 250, 252);"><input checked="" class="invisible" name="background-color" type="radio"/></label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary" style="background-color: rgb(26, 26, 26);"><input class="invisible" name="background-color" type="radio"/></label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary" style="background-image: linear-gradient(to right, #f97794 0%, #623aa2 100%);"><input class="invisible" name="background-color" type="radio"/></label>
+<button class="size-8 rounded-full border border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500"><span class="material-symbols-outlined text-base">add</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm text-copy-light-secondary dark:text-copy-dark-secondary">Button Color</label>
+<div class="flex flex-wrap gap-3">
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary" style="background-color: #4F46E5;"><input class="invisible" name="button-color" type="radio"/></label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-primary has-[:checked]:border-surface-light" style="background-color: rgb(26, 26, 26);"><input checked="" class="invisible" name="button-color" type="radio"/></label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary" style="background-color: rgb(255, 255, 255);"><input class="invisible" name="button-color" type="radio"/></label>
+<button class="size-8 rounded-full border border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500"><span class="material-symbols-outlined text-base">add</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm text-copy-light-secondary dark:text-copy-dark-secondary">Text Color</label>
+<div class="flex flex-wrap gap-3">
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary" style="background-color: rgb(249, 249, 251);"><input class="invisible" name="text-color" type="radio"/></label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-primary has-[:checked]:border-surface-light" style="background-color: rgb(26, 26, 26);"><input checked="" class="invisible" name="text-color" type="radio"/></label>
+<button class="size-8 rounded-full border border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500"><span class="material-symbols-outlined text-base">add</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm text-copy-light-secondary dark:text-copy-dark-secondary">Font Family</label>
+<select class="rounded-full border-border-light dark:border-border-dark bg-transparent dark:text-copy-dark text-sm focus:border-primary focus:ring-primary">
+<option>Inter</option>
+<option>Poppins</option>
+<option>Lato</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm text-copy-light-secondary dark:text-copy-dark-secondary">Button Shape</label>
+<div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 p-1 rounded-full">
+<button class="px-3 py-1 text-sm rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"><span class="material-symbols-outlined text-lg">crop_16_9</span></button>
+<button class="px-3 py-1 text-sm rounded-full bg-white dark:bg-slate-700 text-primary dark:text-white shadow-sm"><span class="material-symbols-outlined text-lg">rounded_corner</span></button>
+<button class="px-3 py-1 text-sm rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"><span class="material-symbols-outlined text-lg">circle</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm text-copy-light-secondary dark:text-copy-dark-secondary">Mode</label>
+<div class="flex items-center p-1 rounded-full bg-slate-100 dark:bg-slate-800">
+<button class="flex items-center gap-2 px-3 py-1 text-sm rounded-full bg-white dark:bg-slate-700 text-primary dark:text-white shadow-sm"><span class="material-symbols-outlined text-base">light_mode</span> Light</button>
+<button class="flex items-center gap-2 px-3 py-1 text-sm rounded-full text-slate-500 dark:text-slate-400"><span class="material-symbols-outlined text-base">dark_mode</span> Dark</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-border-light dark:border-border-dark">
+<h2 class="text-lg font-semibold text-copy-light dark:text-copy-dark mb-2">AI Theme Generator</h2>
+<p class="text-sm text-copy-light-secondary dark:text-copy-dark-secondary mb-6">Describe a theme and let AI create it for you.</p>
+<div class="flex gap-2 mb-6">
+<input class="w-full rounded-full border-border-light dark:border-border-dark bg-transparent text-sm focus:border-primary focus:ring-primary dark:placeholder-slate-500" placeholder="e.g., 'vibrant summer sunset'" type="text"/>
+<button class="flex-shrink-0 flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-vibrant-gradient text-white shadow-lg shadow-indigo-500/30">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+</div>
+<h3 class="text-sm font-medium text-copy-light-secondary dark:text-copy-dark-secondary mb-4">Suggestions</h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="aspect-w-1 aspect-h-1 cursor-pointer group">
+<div class="w-full h-full rounded-lg bg-cover bg-center" data-alt="Abstract gradient of blue and purple resembling a night sky." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACWfS8ULiUf8uZno_pPi3lRTzbWpI0paIfzjvrotQlib-Ay03aDOEHBF1t6Q06SuQPqviNxy5hit3hJE_Y9X05azeHLQEKoP9srgXQRAFfv2UCwXaqe3FQJr2_Brx55hjOcVKllavuGZEJESnQq4MNQ9dvBeJO3pWF0dKOJokS1Ppf2H5q9DsFbwyYLfr4oaAMlWAIOu2cbwduNNdHttahKlo3IzlIa9KMKIknSwHafW3NhYsSSe0NrqZxQ05NFij3PaGQH3gLtec')"></div>
+</div>
+<div class="aspect-w-1 aspect-h-1 cursor-pointer group">
+<div class="w-full h-full rounded-lg bg-cover bg-center" data-alt="Pastel gradient of pink, yellow, and blue." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAi33YBSn3xD9VcMY-pVyY34Nt8JEusND-KPPrQTq96DS8-T4S4EEIXsxTVqIIMqERNJy3QKjXIhWg9-OWUNKLwDgJYwDH0S_SqjbGM6tI0WTRd42Sv6U34cyeuN-URPT2-yt6HT2rfIQIg1kmBnwyBAv5hT8DYlJwsgm2CLfuJ_hFkDCLGum-DsEv5WS6aNGPUbCpFwGrU5qjfrWvZ7HTWF348ysHHuKQChZOTjgQj3xi1ugdvAPWUw1hIfAgrizpBY12XCFMHeho')"></div>
+</div>
+<div class="aspect-w-1 aspect-h-1 cursor-pointer group">
+<div class="w-full h-full rounded-lg bg-cover bg-center" data-alt="Soft white and gray marble texture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1lCJrFDrbTIg5dgJdhDollp1hmojsLgmWlZmpj0qh8wboImdPn5YJDUySoA05NqQgbsAkwRLKUmcCfkqb075_s9Ia50Y-1HKUYCz6kVfaKfsbaRwqFPEleuMMx6QW-FpdLeUYX4EJClujcKLNoEgLllpKc4QgqpO2ajuAaXbe4_Sv3hg7wUkA2_KEVZrAHSj97H_8WsA06boblJ2-eE81X-ZOXHip7DjbaVFkbYItd43ZAcQGd0voM4KdREpCBHrnLD2VpjPnm10')"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7">
+<div class="sticky top-8">
+<div class="bg-slate-200/50 dark:bg-slate-800/20 p-4 rounded-xl">
+<div class="bg-white dark:bg-slate-900 w-full max-w-sm mx-auto rounded-[2rem] shadow-2xl shadow-slate-200 dark:shadow-slate-900/50 p-4 border border-slate-200 dark:border-slate-800">
+<div class="bg-gradient-to-br from-indigo-100 to-violet-200 dark:from-indigo-900/50 dark:to-violet-800/50 min-h-[600px] rounded-xl flex flex-col items-center p-6 space-y-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24 border-4 border-white dark:border-slate-700 shadow-lg" data-alt="Avatar placeholder for a user profile." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuByRgW948dskcPdDfcesQUMnnrBbzbJ4efjMQXFlhAxYAbRfj8MDpPqNWdQwXPc6VwsWwZo8WvsEczoKLLZ_s86nzFfYNNT9VmqdgeFjWih6AyGJ2hJSSLuNZ9TnZVL1bAMrmYTHBXR6wfZ2XKFNr-cw9bkUsg3R6I2TXnjGQUr6zIMeJ6AJGGwUhgaZ5vCWr_Pav9bVMl-9tIseyL9szK_NrLuz1ZuvgAdrYxmVYNw9E6ABR8vOW_eGFCfrfAvIkyrzvBth1-tX-A");'></div>
+<div class="text-center">
+<h1 class="text-xl font-bold text-slate-800 dark:text-white">@username</h1>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Welcome to my page! Check out my links below.</p>
+</div>
+<div class="w-full space-y-3 pt-4">
+<a class="flex w-full items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-vibrant-gradient text-white text-sm font-semibold leading-normal tracking-wide transition-transform duration-200 hover:scale-105 shadow-md shadow-indigo-500/20" href="#">
+<span>My Website</span>
+</a>
+<a class="flex w-full items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-vibrant-gradient text-white text-sm font-semibold leading-normal tracking-wide transition-transform duration-200 hover:scale-105 shadow-md shadow-indigo-500/20" href="#">
+<span>Latest Project</span>
+</a>
+<a class="flex w-full items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-white dark:bg-slate-800 text-primary dark:text-white text-sm font-semibold leading-normal tracking-wide transition-transform duration-200 hover:scale-105 shadow-md" href="#">
+<span>Portfolio</span>
+</a>
+</div>
+<div class="flex items-center gap-5 pt-4">
+<a class="text-indigo-600/80 dark:text-indigo-400/80 hover:text-indigo-600 dark:hover:text-indigo-400" href="#">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg>
+</a>
+<a class="text-indigo-600/80 dark:text-indigo-400/80 hover:text-indigo-600 dark:hover:text-indigo-400" href="#">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+</svg>
+</a>
+<a class="text-indigo-600/80 dark:text-indigo-400/80 hover:text-indigo-600 dark:hover:text-indigo-400" href="#">
+<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.3 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

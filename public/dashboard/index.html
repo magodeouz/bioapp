@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard - BioFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": {
+              DEFAULT: "#4F46E5",
+              light: "#6366F1",
+            },
+            "background-light": "#f7f8fa",
+            "background-dark": "#0f172a",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1e293b",
+            "copy-light": "#0f172a",
+            "copy-dark": "#f1f5f9",
+            "copy-light-secondary": "#64748b",
+            "copy-dark-secondary": "#94a3b8",
+            "border-light": "#e2e8f0",
+            "border-dark": "#334155"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.75rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .bg-vibrant-gradient {
+      background-image: linear-gradient(135deg, #818CF8 0%, #4F46E5 50%, #3730A3 100%);
+    }
+    .text-vibrant-gradient {
+      background: linear-gradient(135deg, #818CF8 0%, #4F46E5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-copy-light dark:text-copy-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex h-full grow">
+<aside class="flex h-screen min-h-[700px] flex-col justify-between border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark p-4 w-64 fixed">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-3">
+<div class="size-8 text-vibrant-gradient">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h1 class="text-copy-light dark:text-copy-dark text-base font-bold leading-normal">BioFlow</h1>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-sm font-normal leading-normal">SaaS Platform</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-indigo-100 dark:bg-indigo-500/20 text-primary dark:text-indigo-300" href="/dashboard/index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="/links/index.html">
+<span class="material-symbols-outlined">link</span>
+<p class="text-sm font-medium leading-normal">Links</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="/themes/manage.html">
+<span class="material-symbols-outlined">palette</span>
+<p class="text-sm font-medium leading-normal">Theme</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="/settings/index.html">
+<span class="material-symbols-outlined">toggle_on</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-copy-light-secondary dark:text-copy-dark-secondary hover:text-copy-light dark:hover:text-copy-dark hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#" data-logout>
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<main class="flex-1 ml-64 p-8">
+<div class="w-full max-w-7xl mx-auto">
+<header class="mb-8">
+<h1 class="text-copy-light dark:text-copy-dark text-3xl font-bold leading-tight tracking-tight">Welcome back, <span id="dash-name">BioFlow</span></h1>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-normal leading-normal mt-1">Here's what's happening with your bio page today.</p>
+</header>
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="flex flex-col gap-2 rounded-xl bg-surface-light dark:bg-surface-dark p-6 border border-border-light dark:border-border-dark shadow-sm">
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-medium leading-normal">Total Clicks</p>
+<p id="dash-clicks" class="text-copy-light dark:text-copy-dark tracking-tight text-3xl font-bold leading-tight">0</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl bg-surface-light dark:bg-surface-dark p-6 border border-border-light dark:border-border-dark shadow-sm">
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-medium leading-normal">Today's Traffic</p>
+<p id="dash-views" class="text-copy-light dark:text-copy-dark tracking-tight text-3xl font-bold leading-tight">0</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl bg-surface-light dark:bg-surface-dark p-6 border border-border-light dark:border-border-dark shadow-sm">
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-medium leading-normal">Top Link</p>
+<p id="dash-top-link" class="text-copy-light dark:text-copy-dark tracking-tight text-3xl font-bold leading-tight truncate">—</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl bg-surface-light dark:bg-surface-dark p-6 border border-border-light dark:border-border-dark shadow-sm">
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-medium leading-normal">Profile Views</p>
+<p class="text-copy-light dark:text-copy-dark tracking-tight text-3xl font-bold leading-tight">971</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2">
+<section class="flex flex-col gap-4 p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark shadow-sm mb-8">
+<div class="flex flex-col gap-2">
+<p class="text-copy-light dark:text-copy-dark text-lg font-medium leading-normal">Performance Overview</p>
+<div class="flex items-baseline gap-4">
+<p class="text-copy-light dark:text-copy-dark tracking-tight text-4xl font-bold leading-tight truncate">1,482 Clicks</p>
+<div class="flex gap-1">
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-normal leading-normal">Last 7 days</p>
+<p class="text-green-600 dark:text-green-500 text-base font-medium leading-normal">+12.5%</p>
+</div>
+</div>
+</div>
+<div class="flex min-h-[220px] flex-1 flex-col gap-8 py-4">
+<svg fill="none" height="100%" preserveAspectRatio="none" viewBox="-3 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H0V109Z" fill="url(#paint0_linear_chart)"></path>
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="url(#paint1_linear_chart_stroke)" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_chart" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#8B5CF6" stop-opacity="0.2"></stop>
+<stop offset="1" stop-color="#8B5CF6" stop-opacity="0"></stop>
+</linearGradient>
+<linearGradient gradientUnits="userSpaceOnUse" id="paint1_linear_chart_stroke" x1="0" x2="472" y1="75" y2="75">
+<stop stop-color="#3B82F6"></stop>
+<stop offset="1" stop-color="#8B5CF6"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="flex justify-around">
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-xs font-medium uppercase tracking-wider">Mon</p>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-xs font-medium uppercase tracking-wider">Tue</p>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-xs font-medium uppercase tracking-wider">Wed</p>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-xs font-medium uppercase tracking-wider">Thu</p>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-xs font-medium uppercase tracking-wider">Fri</p>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-xs font-medium uppercase tracking-wider">Sat</p>
+<p class="text-copy-light-secondary dark:text-copy-dark-secondary text-xs font-medium uppercase tracking-wider">Sun</p>
+</div>
+</div>
+</section>
+</div>
+<aside class="lg:col-span-1">
+<h2 class="text-copy-light dark:text-copy-dark text-2xl font-bold leading-tight tracking-tight mb-4">Recent activity</h2>
+<div id="dash-recent" class="flex flex-col gap-4"></div>
+</aside>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="/env.js"></script>
+<script type="module" src="/assets/js/navigation.js"></script>
+<script type="module" src="/assets/js/dashboard.js"></script>
+</body>
+</html>

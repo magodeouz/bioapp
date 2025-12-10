@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platform Seçimi - BioFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#D946EF",
+              "background-light": "#F8FAFC",
+              "background-dark": "#0A0A0A",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "1.5rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .platform-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      .platform-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+      }
+      .platform-card:hover::before {
+        left: 100%;
+      }
+      .platform-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 25px -5px rgba(217, 70, 239, 0.3), 0 10px 10px -5px rgba(217, 70, 239, 0.2);
+      }
+      .platform-card.selected {
+        border-color: #D946EF;
+        background: linear-gradient(135deg, rgba(217, 70, 239, 0.15), rgba(168, 85, 247, 0.15));
+        box-shadow: 0 10px 15px -3px rgba(217, 70, 239, 0.4), 0 4px 6px -2px rgba(217, 70, 239, 0.3);
+        transform: scale(1.05);
+      }
+      .platform-card.selected::after {
+        content: '✓';
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, #D946EF, #A855F7);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+        animation: checkmark 0.3s ease-out;
+      }
+      @keyframes checkmark {
+        0% { transform: scale(0) rotate(180deg); }
+        50% { transform: scale(1.2) rotate(0deg); }
+        100% { transform: scale(1) rotate(0deg); }
+      }
+      .dark .platform-card.selected {
+        background: linear-gradient(135deg, rgba(217, 70, 239, 0.25), rgba(168, 85, 247, 0.25));
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-hidden">
+<!-- Animated Background -->
+<div class="absolute inset-0 z-0">
+<div class="absolute -top-40 -left-40 size-[500px] bg-gradient-to-br from-fuchsia-400/30 to-pink-400/30 rounded-full blur-3xl animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute -bottom-40 -right-40 size-[500px] bg-gradient-to-br from-purple-400/30 to-violet-400/30 rounded-full blur-3xl animate-[spin_20s_linear_infinite_reverse]"></div>
+</div>
+
+<!-- Header -->
+<header class="relative z-10 w-full max-w-5xl mx-auto px-6 pt-8">
+<nav class="flex justify-between items-center">
+<button onclick="history.back()" class="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all hover:scale-105">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+Back
+</button>
+<div class="flex-1 max-w-xs mx-4">
+<div class="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2.5 overflow-hidden">
+<div class="bg-gradient-to-r from-fuchsia-500 via-pink-500 to-purple-500 h-2.5 rounded-full transition-all duration-500 shadow-lg" style="width: 33%"></div>
+</div>
+</div>
+<a href="/links/new.html" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all hover:scale-105">Skip</a>
+</nav>
+</header>
+
+<!-- Main Content -->
+<main class="relative z-10 flex-grow flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="max-w-4xl w-full">
+<div class="text-center mb-12">
+<div class="inline-block mb-4">
+<span class="text-6xl">🎯</span>
+</div>
+<h1 class="text-5xl sm:text-6xl font-black leading-tight tracking-tight text-gray-900 dark:text-white mb-4 bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent">
+Which platforms are you on?
+</h1>
+<p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mt-4">
+Seçmek istediklerinizi işaretleyin. Sonradan güncelleyebilirsiniz! ✨
+</p>
+</div>
+
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="Instagram logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQzMmGLQ-iFGqXzCSUqOx85ff_vXMwewcqFrkIrv-2KGVFODSyggaJStRTm5fACyiG6zx1do8kVp3baGZAN_zNM-De2Y3JJfEDGaQaeZpy0YfggfWUVE7q2zv4aOp-SbPOAZGPny4-GaxweTcHrhN-WlxPc7uAnU8UvPTxemCjSggi7KXBT5KTImD7LTRT30wHkOV-XHm6MNOW0YyGLr6glKVwnyLMx8HdqZFMmgTQ6k9QosgzUGdkUcFhWVuV3HAcPvsDsIJ9nBo"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">Instagram</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="WhatsApp logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJE3vFx8qhRno96LLkk9Pd-_07hlQdHTUQ6U4gc4IYQAj9m-gqnSOneSqevQEH9BKgJ3_-Mj1i21rhPB79eeHVXGTN0YhYzr54Pv6Yi5dYuncbtsaKGz2IDYGHizgVk_qph0RV2qNud9RlnR8zfomMfyFljhb3HrhZmeH196YtHMVyFzCV_hfvhINlLx75_PnP_XBwyrrqCE6uOgsczHc4L-wgfG-8CS_V_noW4m72n2mBdO7qRnG1s5lpGvjC92iOcjTywSYHjkc"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">WhatsApp</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="TikTok logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_zneawStkxs8PAtVsQZbS6MsEUyJeNtgcUZANfzdXnvzfSVJGlWO0oxlph9dM_eiu8VsckFyOUNU9HUabvgzKtwTK1p4bHu_1PpT3xNOEftpTr39IaPYWkFIEbezW0PpthjpCyjTkXrK8M0EatgSx2y9MPWq85X0_1k55yVDLyBhaldW3l9QnUOFkh2AdTnZO5tYsEq7LJDHn-hbjnDE9ElAKeW1_22NqGYM7M9SCmAAOUXdXYQWJ9BmLgpLsAKpQLOdS9qo6hUE"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">TikTok</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="YouTube logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyuz2NOY1hcDiZcIOuFf6mt5A_6q6HEn23qigTDs9vqODIT7n-Z6lz-bcqP3_AIA9D4KyHS74sv9QO-2rBkjY9iTRW-SrZOaZMl1bPpc3ocgkXpyp5DCWmdQ_unf7roEPbF2E4cPFb2M_33W3xWTCc3Mc_-RmLyMHCXwCa2r0vW04jw8UUqfOv2VTSCA_-8Tx_8z9KFPiDarcTg5bO0xMYXrDtsYiFKAGm1vxC6qou_dxhoybjmj_1xmKBusx_bUe_yHkC_j4Rtjk"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">YouTube</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="Website icon" class="w-14 h-14 mb-3 dark:invert transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLMFJ4FR79gA5qyb4-cIem-JoLkPESe86V3BGWKTT2wu5tnF2BwkVE7ab2Xczlb__ujvV4badNzPO_RIZageXb_f9a4wml3nQdHLb0yMq8JTUUdDA4pkMEhHZV-Bp4jM4MDafB6Elv5wjyMudoOc_-aj_7SoJvb5CbQliGO0RJnK8kEHBx6uMi_87Sw7anMvO_o6gBCkv8bHroHXaP-uqHIIAsWobwUsm-0bt0Ag6o8d57-ghBcDL3o8fbRjg3lqjtHT-eR2jBRBA"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">Personal Website</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="Spotify logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMJvEjk9JsmRgXxTiIlRsnveZre-m4sxiU2ZHPBItmLCb152GYKzcI0W8lmnWGk6zLOI_m7BQ93aFH_hBg9chJlqeQPKhadXCsXTGY06zc3r3ufbTsXL4gcMeRu39c6NeVWUg6t2ZiJECluycKaAspSAaEbrJvXwnID_263jbflIeIcIIjpA9CHD4TskQQ2mFpHw1R-5pHLNyf8KmpLmi5bxDpdkcPdieQuGHb5McDEYWst72rvrJe42Pg0AnqzDeq6Yz5q0DmYuw"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">Spotify</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="Threads logo" class="w-14 h-14 mb-3 dark:invert transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASIpMd0w60FkgUYpxso42FiR1cjgH8_VPnvAr7v-n7wHNopzIpNK_-Oj01jW-Ri1oWZcmY_xYu1E-4BNquB5tmh5uvJitilN5V7tqDSwyaaiPMzi77b3o6eajnYIa86ysiupzvcSS4WLvzk1BtVDf6kWxWwsVaODcwK4SCNcihkb3WsizND-6WyPEkQ6kYrO4BthiFOiVYmh8iGWVBSAI9U6pqqhQqzGICiPv_xd8Nr-eVnuj_a2Z9DZ3Lzrd1Qt0M88cdMZIySZM"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">Threads</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="Facebook logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwghkhJKk08oCItCyF_S3ZnDDCrriDExGtMx1gorrXDwCEiN7fq-zvzLiNiJIagxt2y9tR_s5i8SDBWTSQb_x0t1I2mS3_7z8TTsBt42_01QL-_2YZ_1llDNgOQkCS7Xvx6GQmDhYqML8-dwk73OvPbn2BmpEVMtn15bpTWZ5-ZkacVfrsrBG-j2v4aTeQgF_4gqArNzPaQOGlxLbIqWwGhoPRG9bKpuJu1UmjGRZJWYFlf1UpjTSp7oJ5eRdQND5ejcPWxz2TwfM"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">Facebook</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="X logo" class="w-14 h-14 mb-3 dark:invert transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy5guA1MdNlCfZBhF4z1J61QLpX6vdthEcCe4uSazlh0Mu5sTBcYw4AzGhSHGa2gOJ5VPtLaIyQe4xiUOgvQHEyImo4dD4cczmQiwhc9cMmDZP7dsiIcegLMwjaGifwvJ3mPedEkx_mM3PDMdfDO30a7MGejDRWDpcXh1Coj9Y2pn7Kz_B1JqY3pL0tckcUESbGxepQ4sz8qJ89UVIQ6cSTiqk98GZSSF48jaHFqmYso0czivWe1YlUoWDV7pSkhCKmbZXKl1KnIo"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">X</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="SoundCloud logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH9LrevgG6TR0hRjb7QqGosUEsRHFwQssIASa4CUzbasbVlCGx9Gwcnte1bj6Efa6upDhz9iMsZYce4Mm5GiTX6TAIgYuFZsQjLMef2yFEc1WqMOMMCsb4y48Mh4hju0QIe9NUmxagetbJYHm29uq4ewA9FLfn46_PLvmGVVYU9t3vU_kqOLgVhzPA6bQqKPuTN0XdSCElAwVJzPjs0bkFJ3Q-uzN_GAghT8ZCo-HCDWAO-ZtBdAKUdQWPed-VMGNTLZuLbSM3p2k"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">SoundCloud</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="Snapchat logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIxUuBcVC1AJIZNncczB-_ewaBsMVKTnyXN1HihYiULcudaerTOmSB0i-XhHXI1hQBcgT6qdhbhsa_a16awe3c4NIZPMbl7hvMQQJ3wFYn4s5R5t_fuN6R98BpQe4vfRflQ5Z0ErY77Jx8hodaI-XILrkoERUePHwyxhiQGzt5d9Zv_UN7-pvo6cO_SVAUk-AWeuJ5-D0fQ4w8TyRh5j21hO7lt9PF1L8a7uOj8TU5ieqnJN7ziyVhZXpVifYKYS9r4cEidbXJweI"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">Snapchat</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 rounded-2xl cursor-pointer">
+<img alt="Pinterest logo" class="w-14 h-14 mb-3 transition-transform group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ0lrIX0smjoNFAIKJj0uDb21eEebC1Zb_R9t_wEcObYpHSYtmWWrv278nnVPvO3vcUpz3g0r6lSo60O47wd6VQAEONdloPHuuMdAfgbVegCFEd35MTYQc3tUSlKaJ8efmIVvHt4UD9ZpKipL7Xr3dYrdju1o9rJR8fpYN4vM-1MLIygdLDMCvhuTE-T9KiU2MRi-LXVGSiIsmBF4iGWJ_ilHqJLVgnC2gH00KeuvVcpg6oyDx_PW18MjIsUSVVbyct9vavW05Ipg"/>
+<span class="text-sm font-semibold text-gray-800 dark:text-gray-200">Pinterest</span>
+</div>
+</div>
+
+<div class="flex justify-center">
+<button id="platform-continue" class="group w-full max-w-md bg-gradient-to-r from-fuchsia-600 via-pink-600 to-purple-600 text-white font-bold py-4 px-8 rounded-full shadow-2xl shadow-fuchsia-500/50 hover:shadow-fuchsia-500/70 focus:outline-none focus:ring-4 focus:ring-fuchsia-500/50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+<span class="flex items-center justify-center gap-2">
+Continue
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+
+<script src="/env.js"></script>
+<script type="module" src="/assets/js/onboarding.js"></script>
+</body>
+</html>

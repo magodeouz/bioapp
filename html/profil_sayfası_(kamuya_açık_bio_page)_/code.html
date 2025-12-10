@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profil Sayfası (Kamuya Açık Bio Page)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4F46E5",
+            "primary-light": "#A5B4FC",
+            "background-light": "#F8F7FF",
+            "background-dark": "#111827",
+            "surface-dark": "#1F2937",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1.5rem",
+            "xl": "2rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .vibrant-gradient-bg {
+      background: linear-gradient(135deg, #4F46E5 0%, #A855F7 50%, #EC4899 100%);
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark antialiased">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+<div class="absolute inset-0 z-0 h-96 bg-gradient-to-b from-primary-light/30 via-background-light to-background-light dark:from-indigo-900/40 dark:via-background-dark dark:to-background-dark"></div>
+<div class="relative z-10 w-full max-w-2xl">
+<header class="flex w-full flex-col items-center gap-4 text-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-28 w-28 ring-4 ring-white/50 dark:ring-surface-dark/50" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDiy7W9fjFw0v2LeIQ0wGxaDMv1PvrkhbcWBoO2WzQ7o6FSKYDP5rNYbhMxxLKCNRvP4IVpiFrCie6GLrL4ApEXOFJ85xbK05cVfpyeHVyXLBKZ_NXukFGPpdy5oT0LLXGhL_o9C92U1nnh-qHtj9igI7_eYBHJgpSe4FSHgpSrrk7I9WaVJfTEju9mklERYatK0VHgtw95TTQW071yfww1YQNb_G5NspqfVrXn6fRxKUOww0fenPMeKufMWr2cL1WfmsPRfmASxY8");'></div>
+<div class="flex flex-col items-center justify-center gap-1">
+<h1 class="text-[#111618] dark:text-white text-2xl font-bold leading-tight tracking-tight">Elif Yılmaz</h1>
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Dijital içerik üreticisi ve yazar. Hayatı keşfetmek ve ilham vermek için buradayım ✨</p>
+</div>
+</header>
+<section class="mt-6 flex justify-center">
+<div class="flex gap-3">
+<a class="flex flex-col items-center gap-2 text-center transition-transform hover:scale-105" href="#">
+<div class="rounded-full bg-white dark:bg-surface-dark p-3.5 shadow-lg shadow-gray-200/50 dark:shadow-black/20 border border-gray-200/50 dark:border-gray-700">
+<span class="material-symbols-outlined text-xl text-gray-700 dark:text-gray-200">photo_camera</span>
+</div>
+</a>
+<a class="flex flex-col items-center gap-2 text-center transition-transform hover:scale-105" href="#">
+<div class="rounded-full bg-white dark:bg-surface-dark p-3.5 shadow-lg shadow-gray-200/50 dark:shadow-black/20 border border-gray-200/50 dark:border-gray-700">
+<span class="material-symbols-outlined text-xl text-gray-700 dark:text-gray-200">music_note</span>
+</div>
+</a>
+<a class="flex flex-col items-center gap-2 text-center transition-transform hover:scale-105" href="#">
+<div class="rounded-full bg-white dark:bg-surface-dark p-3.5 shadow-lg shadow-gray-200/50 dark:shadow-black/20 border border-gray-200/50 dark:border-gray-700">
+<span class="material-symbols-outlined text-xl text-gray-700 dark:text-gray-200">play_circle</span>
+</div>
+</a>
+</div>
+</section>
+<main class="mt-8 flex flex-col gap-4">
+<div class="flex w-full flex-col items-stretch gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 vibrant-gradient-bg text-white text-base font-bold leading-normal shadow-lg shadow-purple-500/30 transition-transform hover:scale-[1.02]">
+<span class="truncate">En Yeni YouTube Videom</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-white dark:bg-surface-dark text-[#111618] dark:text-white text-base font-bold leading-normal shadow-lg shadow-gray-200/50 dark:shadow-black/20 transition-transform hover:scale-[1.02]">
+<span class="truncate">Blog Yazılarım</span>
+</button>
+</div>
+<div class="w-full">
+<div class="flex flex-col items-stretch justify-start rounded-lg bg-white dark:bg-surface-dark shadow-lg shadow-gray-200/50 dark:shadow-black/20 @container sm:flex-row sm:items-start p-4">
+<div class="flex w-full min-w-0 grow flex-col items-stretch justify-center gap-2 sm:px-2">
+<p class="text-primary dark:text-indigo-400 text-sm font-bold leading-normal tracking-wide">DUYURU</p>
+<p class="text-[#111618] dark:text-white text-lg font-bold leading-tight tracking-tight">Yeni e-kitabım çıktı!</p>
+<div class="flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
+<p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Şimdi %20 indirimli fiyatıyla satın almak için tıkla.</p>
+<button class="flex-shrink-0 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-9 px-4 bg-primary text-white text-sm font-medium leading-normal transition-opacity hover:opacity-90">
+<span class="truncate">Daha Fazla Bilgi Al</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-white dark:bg-surface-dark text-[#111618] dark:text-white text-base font-bold leading-normal shadow-lg shadow-gray-200/50 dark:shadow-black/20 transition-transform hover:scale-[1.02]">
+<span class="truncate">Tüm Linklerim</span>
+</button>
+<div class="w-full">
+<div class="relative flex items-center justify-center bg-gray-900 dark:bg-black bg-cover bg-center aspect-video rounded-lg p-4 overflow-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBg4F4gPPstvWJ4pteZdi9jvbg2c2QHshgKMzng0HznsVypJE44ZXN3e0Sz92P_djRmPPkErp2vyZW_8C_mzHy4DCgpjCG6fGCUJMGwnvDYCTxD0WxNjJP8Z4CahUUvRX9DOiHyF_pG_xJek5dT9Xl2UpQumzgaseTNRK-wpX6kyfav7KDEzfGV9nsS-pIvZm8EjCSUsDHoZFs_zFfYZHNmcw2zLxOxS5dquR6U99OpTty5SRxkpBiTqkMcWGCMb2jRLNZq482_pwY')">
+<div class="absolute inset-0 bg-black/40"></div>
+<button class="relative z-10 flex shrink-0 items-center justify-center rounded-full size-16 bg-white/20 text-white backdrop-blur-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1, 'wght' 400;">play_arrow</span>
+</button>
+</div>
+</div>
+</main>
+<footer class="mt-12 text-center">
+<a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Powered by <span class="font-bold">BioFlow</span></a>
+</footer>
+</div>
+</div>
+</body></html>

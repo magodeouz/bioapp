@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kayıt Sayfası</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": {
+              "DEFAULT": "#0284c7", // sky-600
+              "light": "#0ea5e9", // sky-500
+              "dark": "#0369a1" // sky-700
+            },
+            "background-light": "#f8fafc", // slate-50
+            "background-dark": "#020617", // slate-950
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-display">
+<div class="relative flex min-h-screen w-full flex-col items-center bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute -top-40 -left-40 size-[400px] bg-sky-500/10 rounded-full blur-3xl opacity-50 animate-[spin_20s_linear_infinite] dark:bg-sky-500/20"></div>
+<div class="absolute -bottom-40 -right-40 size-[400px] bg-rose-500/10 rounded-full blur-3xl opacity-50 animate-[spin_20s_linear_infinite_reverse] dark:bg-rose-500/20"></div>
+</div>
+<div class="layout-container flex h-full grow flex-col w-full max-w-6xl mx-auto px-4 z-10">
+<header class="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-5">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">BioFlow</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm text-slate-600 dark:text-slate-400">Already have an account?</span>
+<a class="text-primary hover:text-primary-dark text-sm font-medium leading-normal transition-colors" href="/auth/login.html">Login</a>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center py-12 sm:py-16">
+<div id="signup-panel" class="w-full max-w-md space-y-8 px-4">
+<div class="text-center">
+<p class="text-slate-900 dark:text-white text-4xl sm:text-5xl font-black leading-tight tracking-[-0.033em]">Create your account</p>
+</div>
+<form id="signup-form" class="space-y-6">
+<label class="flex flex-col">
+<p class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal pb-2">Full Name</p>
+<input id="signup-full-name" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 px-5 text-base font-normal leading-normal transition-colors" placeholder="e.g., Ada Lovelace" value=""/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal pb-2">Email</p>
+<input id="signup-email" type="email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 px-5 text-base font-normal leading-normal transition-colors" placeholder="you@example.com" value=""/>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal pb-2">Username</p>
+<div class="relative flex w-full flex-1 items-stretch">
+<input id="signup-username" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 px-5 text-base font-normal leading-normal transition-colors" placeholder="e.g., adalovelace" value=""/>
+</div>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-900 dark:text-slate-200 text-sm font-medium leading-normal pb-2">Password</p>
+<input id="signup-password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 px-5 text-base font-normal leading-normal transition-colors" placeholder="Enter a secure password" type="password" value=""/>
+</label>
+</form>
+<div class="flex flex-col gap-4 pt-2">
+<button id="signup-submit" type="button" class="flex items-center justify-center whitespace-nowrap h-12 px-6 rounded-full text-base font-semibold text-white transition-all w-full bg-gradient-to-br from-sky-500 via-purple-500 to-rose-500 shadow-lg shadow-sky-500/20 dark:shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/30 dark:hover:shadow-sky-500/40 transform hover:-translate-y-0.5">Create account</button>
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-slate-200 dark:border-slate-700"></div>
+<span class="flex-shrink mx-4 text-xs text-slate-400 dark:text-slate-500 uppercase">OR</span>
+<div class="flex-grow border-t border-slate-200 dark:border-slate-700"></div>
+</div>
+<button class="flex items-center justify-center whitespace-nowrap h-12 px-6 rounded-full text-base font-medium text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors w-full gap-2">
+<svg class="size-5" viewBox="0 0 48 48" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+<path d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" fill="#FFC107"></path>
+<path d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" fill="#FF3D00"></path>
+<path d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.223,0-9.657-3.356-11.303-8H6.306C9.656,39.663,16.318,44,24,44z" fill="#4CAF50"></path>
+<path d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l6.19,5.238C44.437,36.218,48,30.455,48,24C48,22.659,47.862,21.35,47.611,20.083z" fill="#1976D2"></path>
+</svg>
+            Sign up with Google
+          </button>
+        </div>
+      </div>
+</div>
+<div id="signup-info" class="hidden w-full max-w-lg mx-auto px-6 text-center flex flex-col items-center gap-4">
+  <div class="rounded-2xl border border-sky-200/80 dark:border-sky-800/70 bg-gradient-to-br from-sky-50 via-white to-slate-50 dark:from-sky-900/40 dark:via-slate-900/60 dark:to-slate-900/70 shadow-xl p-8">
+    <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-700 dark:bg-sky-800/60 dark:text-sky-100">
+      <span class="material-symbols-outlined">mark_email_unread</span>
+    </div>
+    <p class="text-lg font-semibold text-slate-900 dark:text-slate-100">Mail adresinize doğrulama linki gönderdik.</p>
+    <p class="text-sm text-slate-600 dark:text-slate-300">Lütfen e-postanızı kontrol edin ve gelen linke tıklayarak devam edin.</p>
+  </div>
+</div>
+</main>
+</div>
+</div>
+<script src="/env.js"></script>
+<script type="module">
+  import { supabase } from "/assets/js/supabaseClient.js";
+  import { signUp } from "/assets/js/auth.js";
+
+  const form = document.getElementById("signup-form");
+  const button = document.getElementById("signup-submit");
+  const info = document.getElementById("signup-info");
+  const panel = document.getElementById("signup-panel");
+
+  const { data } = await supabase.auth.getSession();
+  if (data?.session) {
+    window.location.href = "/dashboard/index.html";
+  }
+
+  button?.addEventListener("click", () => form?.requestSubmit());
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    button?.setAttribute("disabled", "true");
+    try {
+      const fullName = document.getElementById("signup-full-name").value.trim();
+      const email = document.getElementById("signup-email").value.trim();
+      const username = document.getElementById("signup-username").value.trim();
+      const password = document.getElementById("signup-password").value.trim();
+
+      if (!fullName || !email || !username || !password) {
+        throw new Error("Lütfen tüm alanları doldurun.");
+      }
+
+      await signUp({ email, password, fullName, username });
+
+      // Form panel'ini gizle
+      if (panel) {
+        panel.style.display = "none";
+      }
+      
+      // Bilgi mesajını göster
+      if (info) {
+        info.classList.remove("hidden");
+        info.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      
+      // Butonu güncelle
+      if (button) {
+        button.textContent = "Mail gönderildi";
+        button.setAttribute("disabled", "true");
+      }
+    } catch (err) {
+      alert("Kayıt başarısız: " + err.message);
+    } finally {
+      button?.removeAttribute("disabled");
+    }
+  });
+</script>
+
+</body></html>

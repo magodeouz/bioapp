@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platform Selection Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#D946EF", // A vibrant magenta/purple
+              "background-light": "#FFFFFF",
+              "background-dark": "#111111",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        .platform-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .platform-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .platform-card.selected {
+            border-color: #D946EF;
+            background-color: #D946EF1A;
+        }
+        .dark .platform-card.selected {
+            background-color: #D946EF2A;
+        }
+        .dark .platform-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.05), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 antialiased">
+<div class="flex flex-col min-h-screen">
+<header class="w-full max-w-5xl mx-auto px-6 pt-6">
+<nav class="flex justify-between items-center">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Back</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Skip</a>
+</nav>
+<div class="mt-6 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 33%"></div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="max-w-xl w-full text-center">
+<h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                    Which platforms are you on?
+                </h1>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                    Pick up to five to get started. You can update at any time.
+                </p>
+</div>
+<div class="mt-12 w-full max-w-2xl">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="Instagram logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQzMmGLQ-iFGqXzCSUqOx85ff_vXMwewcqFrkIrv-2KGVFODSyggaJStRTm5fACyiG6zx1do8kVp3baGZAN_zNM-De2Y3JJfEDGaQaeZpy0YfggfWUVE7q2zv4aOp-SbPOAZGPny4-GaxweTcHrhN-WlxPc7uAnU8UvPTxemCjSggi7KXBT5KTImD7LTRT30wHkOV-XHm6MNOW0YyGLr6glKVwnyLMx8HdqZFMmgTQ6k9QosgzUGdkUcFhWVuV3HAcPvsDsIJ9nBo"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">Instagram</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="WhatsApp logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJE3vFx8qhRno96LLkk9Pd-_07hlQdHTUQ6U4gc4IYQAj9m-gqnSOneSqevQEH9BKgJ3_-Mj1i21rhPB79eeHVXGTN0YhYzr54Pv6Yi5dYuncbtsaKGz2IDYGHizgVk_qph0RV2qNud9RlnR8zfomMfyFljhb3HrhZmeH196YtHMVyFzCV_hfvhINlLx75_PnP_XBwyrrqCE6uOgsczHc4L-wgfG-8CS_V_noW4m72n2mBdO7qRnG1s5lpGvjC92iOcjTywSYHjkc"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">WhatsApp</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer selected">
+<img alt="TikTok logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_zneawStkxs8PAtVsQZbS6MsEUyJeNtgcUZANfzdXnvzfSVJGlWO0oxlph9dM_eiu8VsckFyOUNU9HUabvgzKtwTK1p4bHu_1PpT3xNOEftpTr39IaPYWkFIEbezW0PpthjpCyjTkXrK8M0EatgSx2y9MPWq85X0_1k55yVDLyBhaldW3l9QnUOFkh2AdTnZO5tYsEq7LJDHn-hbjnDE9ElAKeW1_22NqGYM7M9SCmAAOUXdXYQWJ9BmLgpLsAKpQLOdS9qo6hUE"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">TikTok</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="YouTube logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyuz2NOY1hcDiZcIOuFf6mt5A_6q6HEn23qigTDs9vqODIT7n-Z6lz-bcqP3_AIA9D4KyHS74sv9QO-2rBkjY9iTRW-SrZOaZMl1bPpc3ocgkXpyp5DCWmdQ_unf7roEPbF2E4cPFb2M_33W3xWTCc3Mc_-RmLyMHCXwCa2r0vW04jw8UUqfOv2VTSCA_-8Tx_8z9KFPiDarcTg5bO0xMYXrDtsYiFKAGm1vxC6qou_dxhoybjmj_1xmKBusx_bUe_yHkC_j4Rtjk"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">YouTube</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="Website icon" class="w-12 h-12 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLMFJ4FR79gA5qyb4-cIem-JoLkPESe86V3BGWKTT2wu5tnF2BwkVE7ab2Xczlb__ujvV4badNzPO_RIZageXb_f9a4wml3nQdHLb0yMq8JTUUdDA4pkMEhHZV-Bp4jM4MDafB6Elv5wjyMudoOc_-aj_7SoJvb5CbQliGO0RJnK8kEHBx6uMi_87Sw7anMvO_o6gBCkv8bHroHXaP-uqHIIAsWobwUsm-0bt0Ag6o8d57-ghBcDL3o8fbRjg3lqjtHT-eR2jBRBA"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">Personal Website</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="Spotify logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMJvEjk9JsmRgXxTiIlRsnveZre-m4sxiU2ZHPBItmLCb152GYKzcI0W8lmnWGk6zLOI_m7BQ93aFH_hBg9chJlqeQPKhadXCsXTGY06zc3r3ufbTsXL4gcMeRu39c6NeVWUg6t2ZiJECluycKaAspSAaEbrJvXwnID_263jbflIeIcIIjpA9CHD4TskQQ2mFpHw1R-5pHLNyf8KmpLmi5bxDpdkcPdieQuGHb5McDEYWst72rvrJe42Pg0AnqzDeq6Yz5q0DmYuw"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">Spotify</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="Threads logo" class="w-12 h-12 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASIpMd0w60FkgUYpxso42FiR1cjgH8_VPnvAr7v-n7wHNopzIpNK_-Oj01jW-Ri1oWZcmY_xYu1E-4BNquB5tmh5uvJitilN5V7tqDSwyaaiPMzi77b3o6eajnYIa86ysiupzvcSS4WLvzk1BtVDf6kWxWwsVaODcwK4SCNcihkb3WsizND-6WyPEkQ6kYrO4BthiFOiVYmh8iGWVBSAI9U6pqqhQqzGICiPv_xd8Nr-eVnuj_a2Z9DZ3Lzrd1Qt0M88cdMZIySZM"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">Threads</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer selected">
+<img alt="Facebook logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwghkhJKk08oCItCyF_S3ZnDDCrriDExGtMx1gorrXDwCEiN7fq-zvzLiNiJIagxt2y9tR_s5i8SDBWTSQb_x0t1I2mS3_7z8TTsBt42_01QL-_2YZ_1llDNgOQkCS7Xvx6GQmDhYqML8-dwk73OvPbn2BmpEVMtn15bpTWZ5-ZkacVfrsrBG-j2v4aTeQgF_4gqArNzPaQOGlxLbIqWwGhoPRG9bKpuJu1UmjGRZJWYFlf1UpjTSp7oJ5eRdQND5ejcPWxz2TwfM"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">Facebook</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="X logo" class="w-12 h-12 dark:invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy5guA1MdNlCfZBhF4z1J61QLpX6vdthEcCe4uSazlh0Mu5sTBcYw4AzGhSHGa2gOJ5VPtLaIyQe4xiUOgvQHEyImo4dD4cczmQiwhc9cMmDZP7dsiIcegLMwjaGifwvJ3mPedEkx_mM3PDMdfDO30a7MGejDRWDpcXh1Coj9Y2pn7Kz_B1JqY3pL0tckcUESbGxepQ4sz8qJ89UVIQ6cSTiqk98GZSSF48jaHFqmYso0czivWe1YlUoWDV7pSkhCKmbZXKl1KnIo"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">X</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="SoundCloud logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH9LrevgG6TR0hRjb7QqGosUEsRHFwQssIASa4CUzbasbVlCGx9Gwcnte1bj6Efa6upDhz9iMsZYce4Mm5GiTX6TAIgYuFZsQjLMef2yFEc1WqMOMMCsb4y48Mh4hju0QIe9NUmxagetbJYHm29uq4ewA9FLfn46_PLvmGVVYU9t3vU_kqOLgVhzPA6bQqKPuTN0XdSCElAwVJzPjs0bkFJ3Q-uzN_GAghT8ZCo-HCDWAO-ZtBdAKUdQWPed-VMGNTLZuLbSM3p2k"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">SoundCloud</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="Snapchat logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIxUuBcVC1AJIZNncczB-_ewaBsMVKTnyXN1HihYiULcudaerTOmSB0i-XhHXI1hQBcgT6qdhbhsa_a16awe3c4NIZPMbl7hvMQQJ3wFYn4s5R5t_fuN6R98BpQe4vfRflQ5Z0ErY77Jx8hodaI-XILrkoERUePHwyxhiQGzt5d9Zv_UN7-pvo6cO_SVAUk-AWeuJ5-D0fQ4w8TyRh5j21hO7lt9PF1L8a7uOj8TU5ieqnJN7ziyVhZXpVifYKYS9r4cEidbXJweI"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">Snapchat</span>
+</div>
+<div class="platform-card flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+<img alt="Pinterest logo" class="w-12 h-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ0lrIX0smjoNFAIKJj0uDb21eEebC1Zb_R9t_wEcObYpHSYtmWWrv278nnVPvO3vcUpz3g0r6lSo60O47wd6VQAEONdloPHuuMdAfgbVegCFEd35MTYQc3tUSlKaJ8efmIVvHt4UD9ZpKipL7Xr3dYrdju1o9rJR8fpYN4vM-1MLIygdLDMCvhuTE-T9KiU2MRi-LXVGSiIsmBF4iGWJ_ilHqJLVgnC2gH00KeuvVcpg6oyDx_PW18MjIsUSVVbyct9vavW05Ipg"/>
+<span class="mt-4 text-sm font-medium text-gray-800 dark:text-gray-200">Pinterest</span>
+</div>
+</div>
+<div class="mt-12">
+<button class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-fuchsia-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-all duration-300">
+                        Continue
+                    </button>
+</div>
+</div>
+</main>
+<footer class="w-full text-center p-6">
+<a class="text-xs text-gray-500 dark:text-gray-400 hover:underline" href="#">Cookie Preferences</a>
+</footer>
+</div>
+<script>
+        // This script is for demonstration purposes to make the selection interactive.
+        document.querySelectorAll('.platform-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const selectedCount = document.querySelectorAll('.platform-card.selected').length;
+                if (card.classList.contains('selected')) {
+                    card.classList.remove('selected');
+                } else if (selectedCount < 5) {
+                    card.classList.add('selected');
+                }
+            });
+        });
+    </script>
+
+</body></html>

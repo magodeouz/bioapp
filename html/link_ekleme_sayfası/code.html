@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Link Ekleme Sayfası</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8A2BE2",
+              "background-light": "#FFFFFF",
+              "background-dark": "#0A0A0A",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              full: "9999px"
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
+<div class="flex flex-col min-h-screen">
+<header class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<div class="flex items-center justify-between">
+<button class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Back</button>
+<div class="flex-1 max-w-xs mx-4">
+<div class="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 66%"></div>
+</div>
+</div>
+<button class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Skip</button>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-xl text-center">
+<h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50">Add your links</h1>
+<p class="mt-3 text-base text-gray-600 dark:text-gray-400">Complete the fields below to add your content to your new BioFlow.</p>
+<div class="mt-10 text-left">
+<h2 class="text-sm font-medium text-gray-500 dark:text-gray-400">Your selections</h2>
+<div class="mt-4 space-y-4">
+<div class="flex items-center space-x-4">
+<img alt="Instagram logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbZ7K314E9aG9XVX5NbCr85ixb8b2qxq7D-R94w5CqFk4Oxwue22TVcMQfjatCudz0T5Vk3yGjEVZGWvYwqnVIBkn-JcrGSrbxZG8vtzfWV6JCbVC8y9sFgK9d1i0K_pPjBxMxE0-zOCinJ3g1iZaMYWjevk_cY0Fyl4PZLAyz2hn1j_Dqp0KsYHu12RiU8ZKf1-H8v5dpu8bcV7NdZIXNS-XwlwRGYORdO-Ub9khI7xLRqZV74M9tgg2LjmULQikPopyLQNpafDQ"/>
+<div class="relative flex-1">
+<span class="absolute left-3 top-2 text-xs text-gray-400 dark:text-gray-500">Username</span>
+<input class="w-full pl-3 pt-6 pb-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="@" type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<img alt="WhatsApp logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_MwkmrR4e3pc-G0hfUbUikBNp1uEKioIAjtkVWrTAz9ScaE1USgeMPCzuRusRIqVZe49hNFJC0DcCOJJMhzFdPpdI7qJkIFX9-N4GT8Og3Vi6U6Lvq3J9G01rCkDedjy0J4VBW4mP3dTYax5LwaWozhTSR3WXc8i1Vww7i36mUnW8Qx1l2bythlDWTkSamQH29LNi5PfM-5s57SmBebDKqv3nWABeock8kPQQLiWJ2MaBi1HHbfrcwUq8TvNtC4Xbp2XGTtxc8GQ"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="WhatsApp phone number" type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<img alt="TikTok logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqLAocMghDdtIlxVcF3DHS32fTm2fYsFErNOQEcZbfSf5dw95rbUmObNBHb17Ihg0w2KyK9WwhSupIP-fPgKs59sP4A85RXYdQLrg8z8q9nlI_l3P1nKXBylHYXYkV44v7wf8oXocQdeBrba_gmlm6e67fRSs8IxepApCyZJ-ka37bhmYOCBWpcpzd2XbqB1k1V0KZTRWXubYNhm8um5d6SzrBaT-kgRBuLqkxpRy6aS2jwpBlXqGjrodAhvZiR6Wf3qvgM1785W0"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="@username" type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<img alt="Website icon" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdsLucSy8oSM6SJFZ6g-FkHcXPatzfDLvTrbaFARCc5UFvI72a1cCEN5qWGdNoudpCr-ZMXv5POHTmaxPPNBsei4kGOGK0IRGnoAeOudUnUHrFAVM2OiOaaxI9b9GDgFZD-GNW9cqB03acF9PPGduJPG-Gm8EH5wymjzVzNS_HshUJE2xmQZYC2FtUHgyKea-5Wp_yFn6MEcBmTciBoYpGBsQRyTj6SJ4mu1AeIDFL1Grnf5mypfdp6mEVa1vbN7_F25SX8SD98QM"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="url" type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<img alt="YouTube logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF6TTxV845sMji5VLCeiQCaDddc1HgRVt6crA0KLfp_Pj_xSegeCsi9HjC8ni2JlobwjYhXOfuNvA-AWynRtTs-s5e_a40acKUccgGTpDNS2LhxADMdzBhZwtY8MrnD3TDsxteQ0SY23k0F7rY38RTL0Y-gmRuvDPb5JLXbd1-7YhvQVx1RHiihvFKo8l8vO0XjsuFOljis4UUEZIrTz9pgmpWMDEM101zcODwqCbu3YzyuMXfRQT9G6-LCaJp0Pwqv4rGlb0xpO4"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="youtube.com/@username" type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<img alt="Spotify logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtqQ7SmuyPbLKaLGKw8zkDXsDhywjPqbYyJhVeELqvaOf_zUPthqIizZqQhWkB_vIolaEAKXcL0e_pvR72fsqM_uebZBqtIW_HKRUqDMNJzMbxF9UDVNr8dxEq-F2HZ0ZnhIn3Ym2gBOuUrE4qUTAFrs2S-uPoy5PkJZTpPDb7rUVyxJh_-Ve8gORsHSzB2fCFilwLc3boKjxkNkKUiPLFDUy176Degn5r744cI6QANNTnPWv21XN8pbiZGdgrT1x-wy-I9452e3w"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="Spotify url" type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<img alt="Threads logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD98P6BgR4vUqLPQ5_ORqbH0vCU_yqNadD158eOPw0ChjywHgOswyYS3ObONRDg51S3cscf2asBXaFl9IecD3ssxtxTodh03nHaoysx16XidE70KiSaqB_q1vZ133C4U2thNtjIie3sgUvczMFNEfxk3NqznjYFrsxlsdavYRJ3BwTdR8KsjN9kUUZRbNa44ZIZgUcwQGthjHWDIpd1TnFIzz_s3NhqyCgs3xV21uNvUCziWmKVNAlcOH_d7Y8NtEWmOR2rz6ci-LU"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="@username" type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<img alt="Facebook logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmwVOlLcEDuS2Zlje05HPZDEXKve5vRP5ge7hU44Fo5GxxQg2CA23X7E25Ci690MEQEIWGRuw52854tZz1jixHCRFnkMnaelQjRin1eJHqY-OTgMNY454-HITGcWWrDCMCHnVsfFzlqX011pfeoItH6JnKarvT3o5Xf9jtctS_KX-Xw0Ah4Ph3r93pfR8s68OSuq4MsCvwkQ3yxW1t1JrloPrC0qeFEyhc_ZnqVKdqSfgCIlfIKde6Blg2Kj3EyrZaHGQOFFiYfac"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="facebook.com/username" type="text"/>
+</div>
+<div class="flex items-center space-x-4 opacity-50">
+<img alt="X logo" class="w-10 h-10 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVi9eq_DJ1uv0lYAFnUFwGPcZP50SzExgACF-ZdyqBVD6_mjbgHnkc5fxhF52ObMKhMXg3BZlEPVHVkY__Io5i2A21rAuCvgRTaCIpLTbyhuf1jdE7w_fpXlBhr6kE9tKKQh8u83LMDEGUlo3pb619c10Ii5XUo_4VMufB5Eblos3PEX_bq5TVntX7WmIptdURpAqjjJ-NXYUF25Om3k0ocyvLt99InAJV1XXaInXlX3Z9aNqTHCnwzlz_f1WjOcPYytCnGtuHhIQ"/>
+<input class="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="@username" type="text"/>
+</div>
+</div>
+</div>
+<div class="mt-10">
+<button class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-full hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+                        Continue
+                    </button>
+</div>
+</div>
+</main>
+<footer class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+<button class="text-xs text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors">Cookie Preferences</button>
+</footer>
+</div>
+
+</body></html>

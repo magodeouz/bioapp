@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding Tamamlandı - BioFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#8B5CF6",
+              "background-light": "#F8FAFC",
+              "background-dark": "#0A0A0A",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+              lg: "1rem",
+              full: "9999px"
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      @keyframes confetti {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+      }
+      .confetti {
+        animation: confetti 3s ease-out forwards;
+      }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
+<!-- Confetti Background -->
+<div class="absolute inset-0 z-0">
+<div class="absolute -top-40 -left-40 size-[400px] bg-purple-500/20 rounded-full blur-3xl opacity-50 animate-[spin_20s_linear_infinite] dark:bg-purple-500/30"></div>
+<div class="absolute -bottom-40 -right-40 size-[400px] bg-violet-500/20 rounded-full blur-3xl opacity-50 animate-[spin_20s_linear_infinite_reverse] dark:bg-violet-500/30"></div>
+</div>
+
+<!-- Main Content -->
+<div class="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="text-center mb-12">
+<div class="inline-flex items-center justify-center w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-violet-600 mb-6 shadow-2xl shadow-purple-500/50 animate-bounce">
+<span class="text-6xl">🎉</span>
+</div>
+<h1 class="text-5xl sm:text-6xl font-black leading-tight tracking-tight text-gray-900 dark:text-white mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-violet-600 bg-clip-text text-transparent">
+Tebrikler! 🎊
+</h1>
+<p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-2 font-semibold">
+BioFlow sayfanız hazır! ✨
+</p>
+<p class="text-base text-gray-500 dark:text-gray-500">
+Onboarding sürecini başarıyla tamamladınız. Artık harika bir bio sayfanız var! 🚀
+</p>
+</div>
+
+<!-- Profile Preview Card -->
+<div class="bg-white dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-800 shadow-2xl p-8 mb-8">
+<div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
+<div class="flex-shrink-0">
+<img id="profile-avatar" src="" alt="Profile" class="w-32 h-32 rounded-full object-cover border-4 border-purple-200 dark:border-purple-800 shadow-lg"/>
+</div>
+<div class="flex-1 text-center sm:text-left">
+<h2 id="profile-name" class="text-2xl font-bold text-gray-900 dark:text-white mb-2"></h2>
+<p id="profile-username" class="text-purple-600 dark:text-purple-400 font-medium mb-3"></p>
+<p id="profile-bio" class="text-gray-600 dark:text-gray-400"></p>
+</div>
+</div>
+
+<!-- Selected Platforms -->
+<div class="mb-6">
+<h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">apps</span>
+Seçilen Platformlar
+</h3>
+<div id="platforms-list" class="flex flex-wrap gap-2">
+</div>
+</div>
+
+<!-- Added Links -->
+<div>
+<h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">link</span>
+Eklenen Linkler
+</h3>
+<div id="links-list" class="space-y-2">
+</div>
+</div>
+</div>
+
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="/dashboard/index.html" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold py-4 px-8 rounded-full hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transform hover:-translate-y-0.5">
+<span class="material-symbols-outlined">dashboard</span>
+Dashboard'a Git
+</a>
+<a id="view-profile-link" href="#" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-semibold py-4 px-8 rounded-full border-2 border-gray-200 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+<span class="material-symbols-outlined">open_in_new</span>
+Profil Sayfanı Görüntüle
+</a>
+</div>
+</div>
+</div>
+
+<script src="/env.js"></script>
+<script type="module" src="/assets/js/onboarding.js"></script>
+</body>
+</html>
+

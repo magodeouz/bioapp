@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Giriş Sayfası</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": {
+                        "DEFAULT": "#0066FF",
+                        "light": "#D9E8FF"
+                    },
+                    "background-light": "#F7F8FC",
+                    "background-dark": "#0D1117",
+                    "text-light": "#1C1C1E",
+                    "text-dark": "#E6E6E6",
+                    "subtle-light": "#636366",
+                    "subtle-dark": "#A0A0A5",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.75rem", // 12px
+                    "lg": "1.5rem", // 24px
+                    "xl": "2.5rem", // 40px
+                    "full": "9999px"
+                },
+                boxShadow: {
+                    'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
+                    'soft-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05)',
+                    'soft-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.06)',
+                }
+            },
+        },
+    }
+</script>
+<style>
+    .glassmorphism {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .dark .glassmorphism {
+        background: rgba(30, 30, 33, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .gradient-blur {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(247, 248, 252, 0) 70%);
+        border-radius: 9999px;
+        filter: blur(80px);
+        z-index: 0;
+        pointer-events: none;
+    }
+    .dark .gradient-blur {
+        background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, rgba(13, 17, 23, 0) 70%);
+    }
+</style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center group/design-root overflow-hidden">
+<div class="gradient-blur" style="top: -20%; left: -10%;"></div>
+<div class="gradient-blur" style="bottom: -25%; right: -15%; background: radial-gradient(circle, rgba(0, 102, 255, 0.1) 0%, rgba(247, 248, 252, 0) 70%);"></div>
+<div class="relative z-10 grid w-full max-w-7xl grid-cols-1 gap-16 p-8 lg:grid-cols-2 lg:items-center lg:p-12">
+<div class="flex flex-col items-center justify-center text-center lg:items-start lg:text-left">
+<div class="relative w-full max-w-lg">
+<div class="absolute -top-16 -left-12 w-full max-w-[240px] rounded-lg bg-white/70 dark:bg-[#1E1E21]/60 p-4 shadow-soft-lg backdrop-blur-md" style="transform: rotate(-12deg);">
+<div class="flex items-center gap-3">
+<img class="h-10 w-10 rounded-full object-cover" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARS1UmVm5JBOpMK3PSjVgQd45kA38hZ0BgcI3t-rtP16LjoWQ_4jvZ6LrFZs0LCScjUxtWcetxcCdkmhyR5S1ZjJoO5CrLD9KnkhQ8M9LQZGomKl4cZb1VzSoLcZtH7Xt2Mkt3Mw0dcjNw6QoJxs9K4xeeXCpeM4IDG3E-OJJ7WcIvqQStWqjIiRsWSTglo2ClGCdZroE4QWE-aGShpVlScip7cGAK6Iqjj-f4g8F9GoWuq0Dm8bTTiC-3JdHJ8xOavmE-LNbRjI8"/>
+<div>
+<p class="text-sm font-bold text-text-light dark:text-text-dark">@username</p>
+<p class="text-xs text-subtle-light dark:text-subtle-dark">BioFlow User</p>
+</div>
+</div>
+<div class="mt-3 space-y-2">
+<div class="h-3.5 w-full rounded-full bg-gray-200 dark:bg-gray-700/50"></div>
+<div class="h-3.5 w-4/5 rounded-full bg-gray-200 dark:bg-gray-700/50"></div>
+</div>
+</div>
+<div class="absolute -bottom-20 right-0 w-full max-w-[260px] rounded-lg bg-white/70 dark:bg-[#1E1E21]/60 p-4 shadow-soft-lg backdrop-blur-md" style="transform: rotate(8deg);">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">bar_chart_4_bars</span>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">3,2K Clicks</p>
+<p class="text-sm font-medium text-green-500">+15% this week</p>
+</div>
+</div>
+</div>
+<h1 class="text-5xl font-black leading-tight tracking-[-0.03em] md:text-6xl lg:text-7xl">Manage your bio. Grow your audience.</h1>
+<p class="mt-6 max-w-md text-lg text-subtle-light dark:text-subtle-dark">All your links in one place. Powerful analytics, beautiful themes, and seamless integrations.</p>
+</div>
+</div>
+<div class="flex w-full max-w-md flex-col justify-center">
+<div class="w-full rounded-lg glassmorphism p-8 shadow-soft-xl">
+<div class="text-center">
+<h2 class="text-3xl font-bold tracking-tight">Log in to BioFlow</h2>
+<p class="mt-2 text-subtle-light dark:text-subtle-dark">Welcome back! Please enter your details.</p>
+</div>
+<div class="mt-8 space-y-5">
+<label class="flex flex-col">
+<span class="text-sm font-medium leading-normal pb-2 text-subtle-light dark:text-subtle-dark">Email</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md bg-white/60 dark:bg-background-dark/80 text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 focus:border-primary h-12 placeholder:text-subtle-light/80 dark:placeholder:text-subtle-dark/70 px-4 text-base font-normal leading-normal" placeholder="you@example.com" type="email"/>
+</label>
+<label class="flex flex-col">
+<span class="text-sm font-medium leading-normal pb-2 text-subtle-light dark:text-subtle-dark">Password</span>
+<div class="relative flex w-full flex-1 items-stretch">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md bg-white/60 dark:bg-background-dark/80 text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 focus:border-primary h-12 placeholder:text-subtle-light/80 dark:placeholder:text-subtle-dark/70 px-4 text-base font-normal leading-normal pr-12" placeholder="••••••••••••" type="password"/>
+<div class="text-subtle-light dark:text-subtle-dark absolute inset-y-0 right-0 flex items-center pr-4">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+</div>
+</label>
+<button class="flex w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity">
+<span class="truncate">Log In</span>
+</button>
+</div>
+<div class="my-6 flex items-center gap-4">
+<hr class="flex-grow border-gray-200 dark:border-gray-700"/>
+<span class="text-sm text-subtle-light dark:text-subtle-dark">OR</span>
+<hr class="flex-grow border-gray-200 dark:border-gray-700"/>
+</div>
+<div class="space-y-3">
+<button class="flex w-full min-w-[84px] cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-md h-12 px-5 bg-white dark:bg-white/10 text-text-light dark:text-text-dark text-sm font-bold leading-normal border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-white/20 transition-colors">
+<svg class="h-5 w-5" viewBox="0 0 48 48"><path d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" fill="#FFC107"></path><path d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" fill="#FF3D00"></path><path d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.222,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" fill="#4CAF50"></path><path d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.574l6.19,5.238C42.021,35.818,44,30.138,44,24C44,22.659,43.862,21.35,43.611,20.083z" fill="#1976D2"></path></svg>
+<span class="truncate">Continue with Google</span>
+</button>
+<button class="flex w-full min-w-[84px] cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-md h-12 px-5 bg-white dark:bg-white/10 text-text-light dark:text-text-dark text-sm font-bold leading-normal border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-white/20 transition-colors">
+<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 4.67123C13.2215 4.67123 14.3917 4.96547 15.421 5.51869C15.421 5.51869 15.421 5.51869 15.421 5.51869L15.6521 4.10851C15.6521 4.10851 15.6521 4.10851 15.6521 4.10851C14.5912 3.52433 13.3379 3.2041 12 3.2041C8.04675 3.2041 4.80823 6.44262 4.80823 10.3959C4.80823 14.3491 8.04675 17.5876 12 17.5876C15.9532 17.5876 19.1918 14.3491 19.1918 10.3959V10.3221C19.1918 8.05608 17.8488 6.0792 15.8924 5.53965L16.273 7.82862C16.8906 7.99464 17.387 8.52972 17.387 9.17647V12.1856C17.387 12.1856 17.387 12.1856 17.387 12.1856C17.387 13.2676 16.5056 14.1491 15.4235 14.1491C14.3414 14.1491 13.4599 13.2676 13.4599 12.1856V6.99378C13.4599 5.72776 12.4187 4.68656 11.1527 4.68656L11.1373 4.68655C9.86553 4.69742 8.82422 5.75399 8.82422 7.0258V7.09959C8.82422 7.09959 8.82422 7.09959 8.82422 7.09959C8.82422 8.18165 9.70569 9.06312 10.7878 9.06312C11.1683 9.06312 11.5179 8.93514 11.7937 8.72318V11.234C10.1089 12.1154 8.27094 13.5687 7.9103 15.8207C7.84153 16.2413 8.17094 16.6356 8.60032 16.6356C9.0297 16.6356 9.38029 16.2782 9.42909 15.8576C9.6912 13.8807 11.2325 12.6592 12.7204 11.8516V10.3959C12.7204 9.3138 11.8389 8.43236 10.7568 8.43236C9.67474 8.43236 8.79327 9.3138 8.79327 10.3959C8.79327 11.4779 9.67474 12.3594 10.7568 12.3594C10.7878 12.3594 10.8187 12.3594 10.8497 12.3562V14.1491C10.8187 14.1491 10.7878 14.1491 10.7568 14.1491C8.62344 14.1491 6.89087 12.4165 6.89087 10.2831C6.89087 8.14971 8.62344 6.41714 10.7568 6.41714C10.8712 6.41714 10.9856 6.42583 11.0969 6.44119V4.68656C11.1152 4.68656 11.1343 4.68656 11.1527 4.68656C11.1527 4.68656 11.1527 4.68656 11.1527 4.68656Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+<span class="truncate">Continue with TikTok</span>
+</button>
+</div>
+<div class="mt-8 text-center">
+<p class="text-sm text-subtle-light dark:text-subtle-dark">
+                    Don't have an account? 
+                    <a class="font-bold text-primary hover:underline" href="#">Sign up</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tema Seçimi Sayfası</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#C026D3",
+            "background-light": "#F8FAFC",
+            "background-dark": "#0A0A0A",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "12px",
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+<header class="flex items-start justify-between">
+<div class="w-full">
+<div class="mx-auto mb-4 h-1 w-40 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+<div class="h-full w-1/2 bg-primary"></div>
+</div>
+<div class="text-center">
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Select a theme</h1>
+<p class="mt-2 text-lg text-slate-600 dark:text-slate-400">Pick the style that feels right - you can add your content later</p>
+</div>
+</div>
+<a href="/onboarding/platforms.html" class="flex-shrink-0 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">Skip</a>
+</header>
+<main id="theme-list" class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+<div class="group cursor-pointer">
+<div class="w-full transform rounded-lg bg-black p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+<div class="flex flex-col items-center space-y-3">
+<img alt="Profile of Jesse Jordan" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHi9nTwIkeojur0p63DSoe6cukDXzEjhYrSExAqEKiGtsdrJ5zUbJr8a1hqY7GOwEsQo5KELF7MMFhnB7DLLU16JOoXw_AuS8C-fhW7xS6kYFtlGdRmZ6YB-vN0MVcY9Ws5gF0hfjcl6M3eoAaefjss2dtNukMOg0zY9DdBWQR7QhhaVALeG9bwyBn4niEjNrT_s986r_cfd6w4SQksuewdVnk0atrbiA8TQox27MHI4wH07IjufuzmvGwfnZvC02AKlKRUyjXuzY"/>
+<div class="text-center">
+<p class="font-semibold text-white">Jesse Jordan</p>
+<p class="text-xs text-slate-400">Rockstar, Activist, Writer</p>
+</div>
+<div class="flex space-x-3 text-white">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.95 5.56c.38.38.38 1.02 0 1.41l-2.83 2.83-2.12-2.12 2.83-2.83c.38-.38 1.02-.38 1.41 0zM1 18.03l7.07-7.07 2.12 2.12L3.12 20.15 1 23l2.85-2.12zM14.24 7.66l2.12 2.12-7.07 7.07-2.12-2.12 7.07-7.07z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 14H8v-1.5h8.5V16zm0-3.5H8V11h8.5v1.5zm-4.25-5.5H8V5h4.25v2z"></path></svg>
+</div>
+<div class="w-full space-y-2 pt-2">
+<div class="h-10 w-full rounded-md bg-slate-800"></div>
+<div class="h-10 w-full rounded-md bg-slate-800"></div>
+<div class="h-10 w-full rounded-md bg-slate-800"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full transform rounded-lg bg-gradient-to-br from-purple-300 via-pink-400 to-orange-300 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+<div class="flex flex-col items-center space-y-3">
+<img alt="Profile of Mindy Frauke" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ_uNjZoDQlWvS8klfr1M2hf0441Qj57sUqrkeTEm_z_nPTw5_F2ZIoHDqyXfB356uFCfGDZGlBN2D_UjnOQERyASd23oSUSy-eb7PUcFEjsaq_Ez7eAporMg3M5LyAcDj6t87D7c0G__UjRA2MUbeV8J8z-VA-Ey1dLMk0nxQdbKpCa_XvhaKejpDeZMLof2DM4HYAelng_qq75tmO4EtyWFZBk9qqDsK3zUs9eSMtmjoN7f4cB9UPvXkldNgTxdnmxGk7RXH_jU"/>
+<div class="text-center">
+<p class="font-semibold text-white">Mindy Frauke</p>
+<p class="text-xs text-slate-100">Community artist, with a taste for everything local</p>
+</div>
+<div class="flex space-x-3 text-white">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.95 5.56c.38.38.38 1.02 0 1.41l-2.83 2.83-2.12-2.12 2.83-2.83c.38-.38 1.02-.38 1.41 0zM1 18.03l7.07-7.07 2.12 2.12L3.12 20.15 1 23l2.85-2.12zM14.24 7.66l2.12 2.12-7.07 7.07-2.12-2.12 7.07-7.07z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 14H8v-1.5h8.5V16zm0-3.5H8V11h8.5v1.5zm-4.25-5.5H8V5h4.25v2z"></path></svg>
+</div>
+<div class="w-full space-y-2 pt-2">
+<div class="h-10 w-full rounded-md bg-white/70 backdrop-blur-sm"></div>
+<div class="h-10 w-full rounded-md bg-white/70 backdrop-blur-sm"></div>
+<div class="h-10 w-full rounded-md bg-white/70 backdrop-blur-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full transform rounded-lg bg-[#442828] p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl" style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 10px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 10px);">
+<div class="flex flex-col items-center space-y-3">
+<img alt="Profile of Lowell Maxwell" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Le_pbSgTh0NgIqnvhD9iigLo8QmV6ikZNwJYUclbgbb-qC_nlVED5GZrToz4aG6Hbi03Y_uUM1hoVxXcDr9GQepalxlvXiuVvgSAOcAGpkizTqDFcvz8N3xzgUw8K13gnabS6fEKBbrYhWpsEERFA3o1-Ok8QABPVkIOTuCUJL4sNcqvtTSOaPcaQ0sv57cPh2SaetbG1gC_-ItXdVNm9szBveMSKc_HV9zrLdx2rTLSAWWjEmJaA2DfP3vKqBTRbX532EKb-Ps"/>
+<div class="text-center">
+<p class="font-semibold text-white">Lowell Maxwell</p>
+<p class="text-xs text-slate-300">Soul beats and mech from Hackney</p>
+</div>
+<div class="flex space-x-3 text-white">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 14H8v-1.5h8.5V16zm0-3.5H8V11h8.5v1.5zm-4.25-5.5H8V5h4.25v2z"></path></svg>
+</div>
+<div class="w-full space-y-2 pt-2">
+<div class="h-10 w-full rounded-md bg-[#F5E8D3]"></div>
+<div class="h-10 w-full rounded-md bg-[#F5E8D3]"></div>
+<div class="h-10 w-full rounded-md bg-[#F5E8D3]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full transform rounded-lg bg-[#FDF6EE] p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
+<div class="flex flex-col items-center space-y-3">
+<img alt="Profile of Sergey Amir" class="h-16 w-16 rounded-full border-2 border-red-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjmrMjmM2j9QTzuQZViLNLcAfNNYKIV2kg1VLv1iU6ag8oZIsQgkBy0XVHSueTOB2C0N7UaLB8edM7gr8y-t-zveL83xfHFBHbN0ZttBl0OcBVEqZ-zfV_o8Pz_Q1H97t-QbFGGfDQLGu_MoPbBVmQ8_lVQ1TWrhbUAZHIbCA1sEHp-PmF26Epw_YKRlpbcuKOoMCwVGc4CmUdg9H3cKAUV_P70QBh1gNPSTw9aJCL7F9eYlzLyIwF9iDsMw4tSIjpL3XltZj9pVc"/>
+<div class="text-center">
+<p class="font-semibold text-red-500">Sergey Amir</p>
+<p class="text-xs text-slate-500">Vintage photography for modern brands</p>
+</div>
+<div class="flex space-x-3 text-red-500">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.95 5.56c.38.38.38 1.02 0 1.41l-2.83 2.83-2.12-2.12 2.83-2.83c.38-.38 1.02-.38 1.41 0zM1 18.03l7.07-7.07 2.12 2.12L3.12 20.15 1 23l2.85-2.12zM14.24 7.66l2.12 2.12-7.07 7.07-2.12-2.12 7.07-7.07z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+</div>
+<div class="w-full space-y-2 pt-2">
+<div class="h-10 w-full rounded-md border border-red-300 bg-white"></div>
+<div class="h-10 w-full rounded-md border border-red-300 bg-white"></div>
+<div class="h-10 w-full rounded-md border border-red-300 bg-white"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-emerald-900 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Roberto Leopoldo" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMCQQDxevWTf_6cWCl2kTdusT6ZLL0YtcjBQ2_jQEc9HmQPcol6BqXFwKd2Tj06v49snpfc48jiNJ-4GAHy6Cem1CPD2km_lMRgEig4RAn2cnaHP-chTarDebuEy3BEZyNgTJLQa3Zb2TyNigsniMBSfCa4C85idxqf4XmBjxPPd24RxB3pR3IlwBie93M2x3yGcaLj_LQiUDEg7suLx4sF2n-sBoO9mjjtijzuCeO5uGQc-1Ee4XprkTxEbcFr1HwqOfyGQZid-g"/><div class="text-center"><p class="font-semibold text-white">Roberto Leopoldo</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full bg-emerald-200"></div><div class="h-10 w-full rounded-full bg-emerald-200"></div><div class="h-10 w-full rounded-full bg-emerald-200"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-slate-200 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Salka Ruslan" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEYowqCbAlgUOv5ctKi4WUCcAHmpZC3vfiZcxhKQSWX6Lm-pKYIt1RejNaBbnkB5mdMBJqDcaSHkvvORKenDmNmq6hVgFDc3vm6xm0EhX1btbDLGRLSBVPsOoNH___z2vZoX43BWoiTvwZHZ-AOosOVALacANLV6KPZZs0t_YmDqsELAiILZk_NUtxDZzxo1EtRcgzVIuFMnvVju0NEau4lE9UTeRwoDvzZs7TpJoBQZ_iYdXT0iUOTN__zF-DtNwVw64SPCerdhs"/><div class="text-center"><p class="font-semibold text-slate-800">Salka Ruslan</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full bg-white"></div><div class="h-10 w-full rounded-full bg-white"></div><div class="h-10 w-full rounded-full bg-white"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-stone-500 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpNJX8616pI24Of6ZNGVLtx9SD2rmdKaF3U_5N2oj_y9nf_IEn0gPvJqDlZL6JQeeG1SNVpgSpGphPk-0TKW6AR3__AiEMhksg_yTHPxmVyyUzXpgi3bluufPPmjO_nvq48nW-DToicVdyvsaP_Kc3aKZuWU92zeqv3kxPIIKtHmR8FFTjHt1olc6UF32vV821i2FsxHufMrM6-PW8mG7hmYXtsYTXHLmtDa5x4VcLb8GHR1V7PmQ3eiKdzVFQe6ZgApqHM9Xb420'); background-size: cover;"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Monica Vera" class="h-16 w-16 rounded-full border-2 border-white/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJHMSnyg6mA6Pxhmu4xOa3lkAPhTWcf61qtzOZQPtxapB5sl40N-8B5tCWucgjXQbgVTDEllmJYJ3bAUkDZvUtX2NU89Gnwu9bhODJAikkyQKNFs8i7szUW8ZhjNcaA06dUczk3mZSYHhmxjh5jfSs_Z-ScvjuZfip3_d-4tR84Kx44wtO67sHX1ZqMJtIn084qUDZgl6WHzIG0X515DZ27AY4FPZwx3xtAiNuALPCeJF-UdsXMOQLmxWcXVH3rMWyXe4_Ik1LDZg"/><div class="text-center"><p class="font-semibold text-white">MONICA VERA</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full bg-stone-400/80"></div><div class="h-10 w-full rounded-full bg-stone-400/80"></div><div class="h-10 w-full rounded-full bg-stone-400/80"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-gradient-to-b from-purple-800 to-indigo-900 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Newlove Store" class="h-16 w-16 rounded-full border-2 border-white/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCixxyvtlD5RASZJu5wMppJR_hglI06pzooVh_rjxsecoiwIvoupYbgZzUABI-745aN-Q2sJ4PWq1nTyNwbXNC1ykBGoJ-MudDzst3RgVeiMksEVvPW2zR0nr-ZsPQqUgEgl0_v9UwqStkuKt7DaxDkUdFLa0R3wW7AHibSXWSDtMTfKS-E7sh8dotdlgyOop2HouH-i1-HYmfttBohWsaZ2Vc-G-G6lOuOUB-fBDrfkuCrU7x5tWmDpH52YAWmKQdwkWRITba6Zl8"/><div class="text-center"><p class="font-semibold text-white">Newlove Store</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full border border-purple-400"></div><div class="h-10 w-full rounded-full border border-purple-400"></div><div class="h-10 w-full rounded-full border border-purple-400"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-[#7C3AED] p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpNJX8616pI24Of6ZNGVLtx9SD2rmdKaF3U_5N2oj_y9nf_IEn0gPvJqDlZL6JQeeG1SNVpgSpGphPk-0TKW6AR3__AiEMhksg_yTHPxmVyyUzXpgi3bluufPPmjO_nvq48nW-DToicVdyvsaP_Kc3aKZuWU92zeqv3kxPIIKtHmR8FFTjHt1olc6UF32vV821i2FsxHufMrM6-PW8mG7hmYXtsYTXHLmtDa5x4VcLb8GHR1V7PmQ3eiKdzVFQe6ZgApqHM9Xb420'); background-size: cover;"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Lexie Candia" class="h-16 w-16 rounded-full border-2 border-white/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZimERNaYYWKzhAL1pPX0U7YUhrOi0_u6ZBOewGMoZ_iA256kIRCto6FEn2TcpqZeYMp9qmOF2E7H9WseNuRLGu0rAkJ5zjsrmnyG1jFpfvF9z4iuXk9VvIU32zeRS-pJCaZaCuFHHWMKCps6YfyqVwLh-moRQZb9yEup98ZG708FxskWTsGQbjS_iWpARyMYiTWs4CbjizbV8JfXlmALqd5FozjzINdexdC6em8Fy8bOWexzShFm0Sp1J-AJL_j0pDH3QCgjn54M"/><div class="text-center"><p class="font-semibold text-white">Lexie Candia</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full bg-purple-300/80"></div><div class="h-10 w-full rounded-full bg-purple-300/80"></div><div class="h-10 w-full rounded-full bg-purple-300/80"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-blue-200 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Indi Montana" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVDuQSmAhj55OkJU7qTPR5ALLj7gzyhxfCz73p9oKdo-YAKW0TkL_Jwz54r8zjVKrR6aUB1gmFNllO6kBxWzmS2O1VFPCXmzbA9c7u-aRQQT0L33iMgMg6SF2DtT9Ltyd6IbUqhPbOPNWgThrbDhrVunX7MHZMi6j6LBGnqqlyfjG0OPxz_vjcL1ykoXMG__tZ7AdnS0eVncUeZgaHRiCXQSwhhlSF2KAgSKffOJNpOCCWu7d1OPT_pHvaENF4SfpyNoRnYahj420"/><div class="text-center"><p class="font-semibold text-slate-800">Indi Montana</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full bg-white/80"></div><div class="h-10 w-full rounded-full bg-white/80"></div><div class="h-10 w-full rounded-full bg-white/80"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-stone-200 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Kevin Sikandar" class="h-16 w-16 rounded-full border-2 border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVnOhtcQbF4pzSWDfMF_4ZcAzzRF4Scs0-Ldo5LDzvtdAPn_oVtXs_Y4K-l_6TPUNtEVORGLu02TKCEG7BEcieiHX8iKZK5eYWh8kqUDmens_5kutDFEuGwhsIgw16cZAEuwphvfLr0diHtwjmXHc5PQBldg53syv0FPNgU6a4H3v1TdFMbZWsxfRnJLJTntri50HcW42_EUXvBSK1ZE9ECLb7woS_3G6YcxULNchzt9_MmvP_WAWW5_zaJePB3nAPW6oGBmukrzk"/><div class="text-center"><p class="font-semibold text-black">Kevin Sikandar</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full border-2 border-black bg-white"></div><div class="h-10 w-full rounded-full border-2 border-black bg-white"></div><div class="h-10 w-full rounded-full border-2 border-black bg-white"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-gradient-to-br from-green-300 to-orange-400 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Natasia" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUM17cUmAVm8kGUxSBoaUDxfN2YoA0SrRevoqEJMVQSe19W2P-wsyMTf5VJ0n1K401KhVbvsry87yrcm67ZO5ucDQYZymuBba5AhxkywAqU_2n5k-NO5-B5KcSfp1_3EsZVn8mU-HBzQPidHmcTU6AFZLVkPwd-H0brrwl8z4g5czdboLdmQUMeCHHeqwDi4UJEJ6rArvaK2jTT8jfQh5po3frSTembHhlRq0b6P3OwTUHCf1Cdo6c_VC42YQ7so7uOgJeqWbU80c"/><div class="text-center"><p class="font-semibold text-white">Natasia</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full bg-white"></div><div class="h-10 w-full rounded-full bg-white"></div><div class="h-10 w-full rounded-full bg-white"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-[#111] p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Ella Vibe" class="h-16 w-16 rounded-full border-2 border-white/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr3-86Qd4T4OcvJUnoJWzOJqBre8O1oD2eX9y3o-oU2XKPvkdBqIAr2MfFIscoPtRX6tfapY6vCfmq5ofSmXMzt2RQYxWYkCjbGaVG0K985TYxvF62C1cQDZFwEEs2rGZmc_wQWBqcLxYyCtyWeqkYxt01yEM8cAiw1ckyz8D10Fcc7uTcHLJlYKjhJhWYtWotSFJiMVA6nJXWynJmYF3_L2YEYTsgkVCAfll2VLP_FMHSQN_OrtC2EPlNY2u9GU5b9uo_tPySVFg"/><div class="text-center"><p class="font-semibold text-white">Ella Vibe</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full border border-slate-700"></div><div class="h-10 w-full rounded-full border border-slate-700"></div><div class="h-10 w-full rounded-full border border-slate-700"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-orange-100 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Gibby Hill" class="h-16 w-16 rounded-full border-2 border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoTfc4jn-Jd4uN6V0xpICkUMpu6QN260_pcsBvksDhYlmGxjKxkKNbNY9Zwj0YZw3hGPwfYwwzMyq5C6kuhm21vd_HKIb98SP4vrXDUICXOv4k0qfC9tuXNr2rhX4cLU6hxV3iwhjoISGl33H55_V1Jpx5SnmCXshR-QV5-Sc4F7IGoLtocXH1Ki2iPGfW-XO9POWjLJrMIOpoxOuQ1XOPtJDQ2EQky5YxiEihaTRlkE7PK7BDQyR9Tz7X12Nsl2OZPr_Ec9UXnJs"/><div class="text-center"><p class="font-semibold text-black">Gibby Hill</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full border border-orange-200 bg-white"></div><div class="h-10 w-full rounded-full border border-orange-200 bg-white"></div><div class="h-10 w-full rounded-full border border-orange-200 bg-white"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-gradient-to-b from-blue-900 via-purple-700 to-purple-500 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Holly Clyde" class="h-16 w-16 rounded-full border-2 border-white/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJNYtOjuAvKP6NUf5CsA_IYVUedLlcFMpWmBeogd2qdEzwfRUgKUy24FnECHbwhyI1MMBjp_RmJ23hyEFH0FoQk1Xlf3OrCz9_cgAXKLoN8Uzq4NVzaIdkjfgJiLlHWmAwgP1rUR-Co8wDgvFLPIVqtLCHOplJ3ZVP-b0bP-NDLr3x-lqcR68fDHg_dpMT8dqIkb_Pfg-Iaid2lNf3zW1GuKm6Z4mAufyP8hWlUNdEq2WFpZ9SCroRK_u3dVNQnAHShymMHcTJLEk"/><div class="text-center"><p class="font-semibold text-white">HOLLY CLYDE</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full border border-purple-400"></div><div class="h-10 w-full rounded-full border border-purple-400"></div><div class="h-10 w-full rounded-full border border-purple-400"></div></div></div></div></div>
+<div class="group cursor-pointer"><div class="aspect-[3/4] rounded-lg bg-pink-100 p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"><div class="flex flex-col items-center space-y-3"><img alt="Profile of Gabrielle Lacey" class="h-16 w-16 rounded-full border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4YBdz7zJnQyJZt8EzJsJ0G5rgSb1GnytRtLq4L1G6fjWSnELaednFsQMzzk91GHxz7zruD6C9alQzPyEppVm0naFDWi6GkZDCOqGi1-W8eMcsvwlE7qOJinR95EF5YHti6R-2YTsh5nXni8RH4tuwUOBM43Lz652pmBJlvLS8FpMEaK54KIITWyuzI2Y3Z7WCcNfs8vsLtbs4fG8tKL37hKj2rPPx_TlPIVXWIwINzfyY12R2ecDAvNZVcwtohKWmTW7QiOqSBdI"/><div class="text-center"><p class="font-semibold text-black">Gabrielle Lacey</p></div><div class="w-full space-y-2 pt-10"><div class="h-10 w-full rounded-full bg-white"></div><div class="h-10 w-full rounded-full bg-white"></div><div class="h-10 w-full rounded-full bg-white"></div></div></div></div></div>
+</main>
+</div>
+</div>
+<script src="/env.js"></script>
+<script type="module" src="/assets/js/themes.js"></script>
+
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="light" lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BioFlow | Kamuya Açık Bio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4F46E5",
+            "primary-light": "#A5B4FC",
+            "background-light": "#F8F7FF",
+            "background-dark": "#111827",
+            "surface-dark": "#1F2937",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1.5rem",
+            "xl": "2rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .vibrant-gradient-bg {
+      background: linear-gradient(135deg, #4F46E5 0%, #A855F7 50%, #EC4899 100%);
+    }
+    #background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    #background-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(0px);
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark antialiased">
+<div id="background-overlay"></div>
+<div class="relative z-10 flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+<div class="w-full max-w-md mx-auto">
+<header class="flex w-full flex-col items-center gap-6 text-center mb-8">
+<div id="profile-avatar" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 ring-4 ring-white/80 dark:ring-surface-dark/80 shadow-2xl" data-alt="User avatar image"></div>
+<div class="flex flex-col items-center justify-center gap-2">
+<h1 id="profile-name" class="text-white text-3xl font-bold leading-tight tracking-tight drop-shadow-lg"></h1>
+<p id="profile-bio" class="text-white/90 text-base font-normal leading-normal drop-shadow-md"></p>
+</div>
+</header>
+<section class="mb-6 flex justify-center">
+<div id="social-links" class="flex gap-4"></div>
+</section>
+<main class="flex flex-col gap-4">
+<div id="link-buttons" class="flex w-full flex-col items-stretch gap-3"></div>
+<div class="w-full">
+<div id="highlight-card" class="flex flex-col items-stretch justify-start rounded-xl bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm shadow-xl border border-white/20 @container sm:flex-row sm:items-start p-5 hidden">
+<div class="flex w-full min-w-0 grow flex-col items-stretch justify-center gap-2 sm:px-2">
+<p class="text-primary dark:text-indigo-400 text-sm font-bold leading-normal tracking-wide">DUYURU</p>
+<p id="highlight-title" class="text-[#111618] dark:text-white text-lg font-bold leading-tight tracking-tight"></p>
+<div class="flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
+<p id="highlight-body" class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal"></p>
+<a id="highlight-link" class="flex-shrink-0 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-9 px-4 bg-primary text-white text-sm font-medium leading-normal transition-opacity hover:opacity-90" href="#" target="_blank" rel="noopener">
+<span class="truncate">Daha Fazla Bilgi Al</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div id="profile-error" class="hidden rounded-lg bg-white/95 dark:bg-surface-dark/95 backdrop-blur-sm border border-red-200 dark:border-red-800 p-4 text-red-600 dark:text-red-300 text-sm">Profil bulunamadı.</div>
+</div>
+<div class="w-full">
+<ins class="adsbygoogle block w-full" style="display:block" data-ad-format="auto" data-full-width-responsive="true" data-ad-client="" data-ad-slot=""></ins>
+</div>
+</main>
+<footer class="mt-8 text-center">
+<a class="text-sm text-white/80 hover:text-white transition-colors drop-shadow-md" href="#">Powered by <span class="font-bold">BioFlow</span></a>
+</footer>
+</div>
+</div>
+<script src="/env.js"></script>
+<script type="module" src="/assets/js/supabaseClient.js"></script>
+<script type="module" src="/assets/js/data.js"></script>
+<script type="module" src="/assets/js/public-page.js"></script>
+</body>
+</html>
