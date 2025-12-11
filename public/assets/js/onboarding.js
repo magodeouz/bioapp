@@ -13,8 +13,9 @@ async function handleProfileDetails() {
   const userId = session.user.id;
 
   // Ensure profile exists with username
+  let existingProfile = null;
   try {
-    await getProfileByUserId(userId);
+    existingProfile = await getProfileByUserId(userId);
   } catch (err) {
     // Profile doesn't exist, create it
     const email = session.user.email || "";
@@ -22,12 +23,13 @@ async function handleProfileDetails() {
     const username = meta.username || (email.includes("@") ? email.split("@")[0] : `user-${userId.slice(0, 6)}`);
     const display_name = meta.full_name || meta.fullName || username;
     try {
-      await upsertProfile({
+      const created = await upsertProfile({
         id: userId,
         username,
         display_name,
         email,
       });
+      existingProfile = created;
     } catch (createErr) {
       console.error("Profile oluşturulamadı:", createErr);
     }
@@ -140,25 +142,34 @@ async function handleProfileDetails() {
     btn?.setAttribute("disabled", "true");
     try {
       // Get username from existing profile or user metadata
-      let username = null;
-      try {
-        const existingProfile = await getProfileByUserId(userId);
-        username = existingProfile?.username;
-      } catch (err) {
-        // Profile doesn't exist yet, that's okay
-      }
-      
-      // If no username in profile, get from user metadata
+      let username = existingProfile?.username;
       if (!username) {
         username = session.user.user_metadata?.username;
       }
-      
-      // If still no username, throw error
       if (!username) {
         throw new Error("Username bulunamadı. Lütfen önce kayıt olun.");
       }
-      
-      await upsertProfile({ id: userId, username, display_name, bio, avatar_url });
+
+      const themeFields = existingProfile
+        ? {
+            background_color: existingProfile.background_color,
+            background_image: existingProfile.background_image,
+            button_color: existingProfile.button_color,
+            text_color: existingProfile.text_color,
+            font_family: existingProfile.font_family,
+            button_shape: existingProfile.button_shape,
+            is_dark_mode: existingProfile.is_dark_mode,
+          }
+        : {};
+
+      await upsertProfile({
+        id: userId,
+        username,
+        display_name,
+        bio,
+        avatar_url,
+        ...themeFields,
+      });
       window.location.href = "/onboarding/complete.html";
     } catch (err) {
       alert("Profil güncellenemedi: " + err.message);
