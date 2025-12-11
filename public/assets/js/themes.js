@@ -117,18 +117,17 @@ function renderPreviewLinks(containerId, links = [], themeSettings = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
   container.innerHTML = "";
-  
+
   // Filter only visible links (accent === "primary")
-  const visibleLinks = links.filter((link) => link.accent === "primary");
-  
+  let visibleLinks = links.filter((link) => link.accent === "primary");
+
+  // Placeholder links if none
   if (!visibleLinks.length) {
-    const placeholder = document.createElement("a");
-    placeholder.href = "#";
-    placeholder.className =
-      "flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 text-base font-bold leading-normal shadow-lg transition-transform hover:scale-[1.02] vibrant-gradient-bg text-white";
-    placeholder.textContent = "Örnek Link";
-    container.appendChild(placeholder);
-    return;
+    visibleLinks = [
+      { title: "My Website", url: "#", accent: "primary" },
+      { title: "Instagram", url: "#", accent: "primary" },
+      { title: "YouTube", url: "#", accent: "primary" },
+    ];
   }
   
   const buttonColor = themeSettings.button_color || "#4F46E5"; // hex | gradient | glass | outline
@@ -211,12 +210,12 @@ export async function updatePreview() {
 
   // Load profile data
   try {
-    const profile = (await getProfileByUserId(userId).catch(() => null)) || {};
-    const links = (await listLinks(userId).catch(() => [])) || [];
+    const profile = await getProfileByUserId(userId).catch(() => null);
+    const links = await listLinks(userId).catch(() => []);
 
     // Update avatar
     if (avatar) {
-      if (profile.avatar_url) {
+      if (profile?.avatar_url) {
         avatar.style.backgroundImage = `url("${profile.avatar_url}")`;
       } else {
         avatar.style.backgroundImage =
@@ -226,12 +225,13 @@ export async function updatePreview() {
 
     // Update username
     if (username) {
-      username.textContent = profile.display_name || profile.username || "username";
+      username.textContent =
+        profile?.display_name || profile?.username || "username";
     }
 
     // Update bio
     if (bio) {
-      bio.textContent = profile.bio || "Sayfama hoş geldin!";
+      bio.textContent = profile?.bio || "Sayfama hoş geldin!";
     }
 
     // Update social links
@@ -241,7 +241,11 @@ export async function updatePreview() {
       text_color: currentSettings.text_color,
     };
 
-    renderPreviewSocial("preview-social-links", profile?.socials || [], themeSettings);
+    renderPreviewSocial(
+      "preview-social-links",
+      profile?.socials || [],
+      themeSettings
+    );
 
     // Update links (only visible ones)
     renderPreviewLinks("preview-links", links, themeSettings);
@@ -288,9 +292,10 @@ export async function updatePreview() {
         backgroundOverlay.style.backgroundSize = "cover";
         backgroundOverlay.style.display = "block";
       }
-    } else if (currentSettings.background_color.startsWith("#")) {
+    } else {
+      const bgColor = currentSettings.background_color || "#f8fafc";
       if (backgroundOverlay) {
-        backgroundOverlay.style.backgroundColor = currentSettings.background_color;
+        backgroundOverlay.style.backgroundColor = bgColor;
         backgroundOverlay.style.backgroundImage = "none";
         backgroundOverlay.style.display = "block";
       }
