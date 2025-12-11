@@ -235,7 +235,7 @@ async function handleLinkOnboarding() {
   if (!list) return;
   const session = await requireAuth("/auth/login.html");
   if (!session) return;
-  const userId = session.user.id;
+  let userId = session.user.id;
   const saved = JSON.parse(localStorage.getItem("bf_platforms") || "[]");
   if (!saved.length && list.children.length === 0) {
     list.innerHTML =
@@ -265,6 +265,23 @@ async function handleLinkOnboarding() {
 
   const saveBtn = document.getElementById("links-save");
   saveBtn?.addEventListener("click", async () => {
+    const freshSession = await requireAuth("/auth/login.html");
+    if (!freshSession) return;
+    userId = freshSession.user.id;
+
+    // Ensure profile exists before inserting links
+    try {
+      await getProfileByUserId(userId);
+    } catch (_err) {
+      const email = freshSession.user.email || "";
+      const meta = freshSession.user.user_metadata || {};
+      const username =
+        meta.username ||
+        (email.includes("@") ? email.split("@")[0] : `user-${userId.slice(0, 6)}`);
+      const display_name = meta.full_name || meta.fullName || username;
+      await upsertProfile({ id: userId, username, display_name, email });
+    }
+
     const inputs = list.querySelectorAll("input");
     const pairs = [];
     for (let i = 0; i < inputs.length; i += 2) {
