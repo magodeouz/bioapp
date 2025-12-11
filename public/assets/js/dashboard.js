@@ -17,18 +17,8 @@ async function loadDashboard() {
   try {
     profile = await getProfileByUserId(userId);
 
-    // Onboarding guard: önce tema seç, ardından link ekleme.
-    if (!profile?.active_theme_id) {
-      window.location.href = "/themes/select.html";
-      return;
-    }
-
+    // Onboarding guard kaldırıldı: kullanıcı tamamladıysa dashboard'da kalsın
     const existingLinks = await listLinks(userId).catch(() => []);
-    if (!existingLinks.length) {
-      window.location.href = "/onboarding/platforms.html";
-      return;
-    }
-
     links = existingLinks;
   } catch (err) {
     console.warn("Profile could not be loaded", err);
