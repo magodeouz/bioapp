@@ -31,7 +31,7 @@ function loadSettings(profile) {
   currentSettings = {
     background_color: profile.background_color || "#f8fafc",
     background_image: profile.background_image || "",
-    button_color: profile.button_color || "#4F46E5",
+    button_color: profile.button_color || "#4F46E5", // can be hex, gradient, glass, outline
     text_color: profile.text_color || "#1a1a1a",
     font_family: profile.font_family || "Inter",
     button_shape: profile.button_shape || "pill",
@@ -127,7 +127,7 @@ function renderPreviewLinks(containerId, links = [], themeSettings = {}) {
     return;
   }
   
-  const buttonColor = themeSettings.button_color || "#4F46E5";
+  const buttonColor = themeSettings.button_color || "#4F46E5"; // hex | gradient | glass | outline
   const buttonShape = themeSettings.button_shape || "pill";
   
   // Determine button shape classes
@@ -148,14 +148,19 @@ function renderPreviewLinks(containerId, links = [], themeSettings = {}) {
       `flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden ${shapeClass} h-14 px-5 text-base font-bold leading-normal shadow-lg transition-transform hover:scale-[1.02]`;
     
     if (link.accent === "primary") {
-      btn.className = `${baseClasses} text-white`;
-      // Apply button color
-      if (buttonColor.startsWith("#")) {
-        btn.style.backgroundColor = buttonColor;
-      } else if (buttonColor === "gradient") {
-        btn.classList.add("vibrant-gradient-bg");
+      if (buttonColor === "glass") {
+        btn.className = `${baseClasses} text-white bg-white/20 backdrop-blur border border-white/40 shadow-xl`;
+      } else if (buttonColor === "outline") {
+        btn.className = `${baseClasses} text-[#111618] dark:text-white bg-transparent border border-current`;
       } else {
-        btn.style.backgroundColor = buttonColor;
+        btn.className = `${baseClasses} text-white`;
+        if (buttonColor === "gradient") {
+          btn.classList.add("vibrant-gradient-bg");
+        } else if (buttonColor.startsWith("#")) {
+          btn.style.backgroundColor = buttonColor;
+        } else {
+          btn.style.backgroundColor = buttonColor;
+        }
       }
     } else {
       btn.className = `${baseClasses} bg-white dark:bg-slate-800 text-[#111618] dark:text-white`;

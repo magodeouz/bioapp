@@ -172,7 +172,7 @@
 <div class="flex flex-col gap-2">
 <div class="flex items-center justify-between">
 <label class="text-sm font-medium text-copy-light dark:text-copy-dark">Background Color</label>
-<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Düz renk veya degrade seç.</span>
+<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Düz renk, degrade veya özel renk.</span>
 </div>
 <div class="flex flex-wrap gap-3">
 <label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: rgb(248, 250, 252);" data-bg-color="#f8fafc">
@@ -193,9 +193,18 @@
 <div class="flex flex-col gap-2">
 <div class="flex items-center justify-between">
 <label class="text-sm font-medium text-copy-light dark:text-copy-dark">Background Image</label>
-<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">URL, preset veya lokal yükleme.</span>
+<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Hazır görsel veya lokal yükleme.</span>
 </div>
-<div class="flex flex-col gap-3 w-full max-w-xs">
+<div class="flex flex-col gap-4 w-full max-w-sm">
+<div class="flex flex-wrap gap-2">
+<button data-bg-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" class="size-16 rounded-lg border-2 border-border-light dark:border-border-dark cursor-pointer bg-cover bg-center hover:ring-2 hover:ring-primary" style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=40')" title="Gradient Light"></button>
+<button data-bg-image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" class="size-16 rounded-lg border-2 border-border-light dark:border-border-dark cursor-pointer bg-cover bg-center hover:ring-2 hover:ring-primary" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=300&q=40')" title="Ocean"></button>
+<button data-bg-image="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=900&q=80" class="size-16 rounded-lg border-2 border-border-light dark:border-border-dark cursor-pointer bg-cover bg-center hover:ring-2 hover:ring-primary" style="background-image: url('https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=300&q=40')" title="Pastel"></button>
+<button data-bg-image="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80" class="size-16 rounded-lg border-2 border-border-light dark:border-border-dark cursor-pointer bg-cover bg-center hover:ring-2 hover:ring-primary" style="background-image: url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=300&q=40')" title="Neon"></button>
+<button data-bg-image="" class="size-16 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:border-slate-400 dark:hover-border-slate-500" id="clear-bg-image" title="Clear image">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
 <div class="flex items-center gap-3">
 <input type="file" id="background-image-file" accept="image/*" class="hidden"/>
 <button type="button" id="upload-bg-image-btn" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-border-light dark:border-border-dark bg-transparent text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
@@ -208,8 +217,8 @@
 </div>
 <div class="flex flex-col gap-2">
 <div class="flex items-center justify-between">
-<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Button Color</label>
-<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Düz renk veya gradient.</span>
+<label class="text-sm font-medium text-copy-light dark:text-copy-dark">Button Style</label>
+<span class="text-xs text-copy-light-secondary dark:text-copy-dark-secondary">Düz, outline, cam, gradient.</span>
 </div>
 <div class="flex flex-wrap gap-3">
 <label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: #4F46E5;" data-button-color="#4F46E5">
@@ -223,6 +232,12 @@
 </label>
 <label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer bg-vibrant-gradient" data-button-color="gradient">
 <input class="invisible" name="button-color" type="radio" value="gradient"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer bg-white/60 backdrop-blur" data-button-color="glass">
+<input class="invisible" name="button-color" type="radio" value="glass"/>
+</label>
+<label class="size-8 rounded-full border-2 border-surface-light dark:border-surface-dark ring-2 ring-transparent has-[:checked]:ring-primary cursor-pointer" style="background-color: transparent;" data-button-color="outline">
+<input class="invisible" name="button-color" type="radio" value="outline"/>
 </label>
 <div class="relative">
 <button id="add-button-color" class="size-8 rounded-full border border-dashed border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:border-slate-400 dark:hover:border-slate-500"><span class="material-symbols-outlined text-base">add</span></button>
