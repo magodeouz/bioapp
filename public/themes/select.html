@@ -48,6 +48,56 @@
 </div>
 <a href="/onboarding/platforms.html" class="flex-shrink-0 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">Skip</a>
 </header>
+<!-- Preset Buttons -->
+<section class="mt-10">
+  <div class="flex items-center justify-between mb-3">
+    <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Theme Presets</h2>
+    <p class="text-xs text-slate-500 dark:text-slate-400">Seç ve devam et</p>
+  </div>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="aurora">
+      <span class="text-sm font-semibold">Aurora</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Canlı gradient</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="midnight">
+      <span class="text-sm font-semibold">Midnight</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Koyu ve parlak</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="sunny">
+      <span class="text-sm font-semibold">Sunny</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Açık ve sıcak</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="mono">
+      <span class="text-sm font-semibold">Mono</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Minimal sade</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="ocean">
+      <span class="text-sm font-semibold">Ocean</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Mavi tonlar</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="forest">
+      <span class="text-sm font-semibold">Forest</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Yeşil & koyu</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="coral">
+      <span class="text-sm font-semibold">Coral</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Mercan & beyaz</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="neon">
+      <span class="text-sm font-semibold">Neon</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Neon gradient</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="pastel">
+      <span class="text-sm font-semibold">Pastel</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Yumuşak tonlar</span>
+    </button>
+    <button class="preset-btn flex flex-col items-start gap-1 p-3 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-primary hover:shadow-sm transition-colors" data-preset="slate">
+      <span class="text-sm font-semibold">Slate</span>
+      <span class="text-xs text-slate-500 dark:text-slate-400">Gri & modern</span>
+    </button>
+  </div>
+</section>
+
 <main id="theme-list" class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 <div class="group cursor-pointer">
 <div class="w-full transform rounded-lg bg-black p-4 shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
@@ -149,6 +199,6 @@
 </div>
 </div>
 <script src="/env.js"></script>
-<script type="module" src="/assets/js/themes.js"></script>
+<script type="module" src="/assets/js/theme-select.js"></script>
 
 </body></html>
