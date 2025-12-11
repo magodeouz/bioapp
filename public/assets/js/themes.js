@@ -15,6 +15,45 @@ let linkDrafts = [];
 let originalLinks = [];
 let publicUrl = "";
 
+const THEME_PRESETS = {
+  aurora: {
+    background_color: "gradient",
+    background_image: "",
+    button_color: "gradient",
+    text_color: "#f9f9fb",
+    font_family: "Inter",
+    button_shape: "pill",
+    is_dark_mode: false,
+  },
+  midnight: {
+    background_color: "#0f172a",
+    background_image: "",
+    button_color: "#6366F1",
+    text_color: "#f9f9fb",
+    font_family: "Inter",
+    button_shape: "pill",
+    is_dark_mode: true,
+  },
+  sunny: {
+    background_color: "#fef3c7",
+    background_image: "",
+    button_color: "#f59e0b",
+    text_color: "#111827",
+    font_family: "Poppins",
+    button_shape: "rounded",
+    is_dark_mode: false,
+  },
+  mono: {
+    background_color: "#f8fafc",
+    background_image: "",
+    button_color: "#111827",
+    text_color: "#111827",
+    font_family: "Inter",
+    button_shape: "rounded",
+    is_dark_mode: false,
+  },
+};
+
 function cloneLinks(arr = []) {
   return arr.map((l) => ({ ...l }));
 }
@@ -626,6 +665,32 @@ function bindPublicActions() {
   });
 }
 
+function applyPreset(presetKey) {
+  const preset = THEME_PRESETS[presetKey];
+  if (!preset) return;
+  currentSettings = { ...currentSettings, ...preset };
+  // Clear bg image when preset has none
+  if (!preset.background_image) {
+    currentSettings.background_image = "";
+    const bgImagePreview = document.getElementById("bg-image-preview");
+    if (bgImagePreview) {
+      bgImagePreview.classList.add("hidden");
+      bgImagePreview.style.backgroundImage = "";
+    }
+  }
+  applySettingsToForm();
+  updatePreview();
+}
+
+function bindPresetButtons() {
+  document.querySelectorAll(".preset-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.preset;
+      applyPreset(key);
+    });
+  });
+}
+
 // -------------------
 // Links: draft mode (only saved on Save Changes)
 // -------------------
@@ -833,6 +898,8 @@ async function init() {
   bindLinkActions();
   console.log("Calling bindPublicActions()");
   bindPublicActions();
+  console.log("Calling bindPresetButtons()");
+  bindPresetButtons();
   console.log("Calling bindSave()");
   bindSave();
   console.log("Init complete");
