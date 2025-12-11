@@ -94,6 +94,55 @@ const THEME_PRESETS = {
   },
 };
 
+let currentPreset = "aurora";
+let currentSettings = { ...THEME_PRESETS.aurora };
+
+function updatePreview() {
+  const bg = document.getElementById("preview-background");
+  const links = document.getElementById("preview-links")?.querySelectorAll("a");
+  const name = document.getElementById("preview-name");
+  const bio = document.getElementById("preview-bio");
+  const avatar = document.getElementById("preview-avatar");
+
+  if (bg) {
+    if (currentSettings.background_image) {
+      bg.style.backgroundImage = `url("${currentSettings.background_image}")`;
+      bg.style.backgroundColor = "transparent";
+    } else if (currentSettings.background_color === "gradient") {
+      bg.style.background = "linear-gradient(135deg, #818CF8 0%, #4F46E5 50%, #3730A3 100%)";
+    } else {
+      bg.style.background = currentSettings.background_color || "#f8fafc";
+    }
+  }
+
+  if (links && links.length) {
+    links.forEach((a, idx) => {
+      const isPrimary = idx === 0;
+      a.style.borderRadius = currentSettings.button_shape === "pill" ? "9999px" : "12px";
+      if (isPrimary) {
+        if (currentSettings.button_color === "gradient") {
+          a.classList.add("vibrant-gradient-bg");
+          a.style.backgroundColor = "";
+        } else {
+          a.classList.remove("vibrant-gradient-bg");
+          a.style.backgroundColor = currentSettings.button_color || "#4F46E5";
+        }
+        a.style.color = "#fff";
+      } else {
+        a.classList.remove("vibrant-gradient-bg");
+        a.style.backgroundColor = "#ffffffd0";
+        a.style.color = currentSettings.text_color || "#111827";
+      }
+    });
+  }
+
+  if (name) name.style.color = currentSettings.text_color || "#fff";
+  if (bio) bio.style.color = currentSettings.text_color || "#fff";
+  if (avatar && currentSettings.button_color) {
+    avatar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.2)";
+  }
+}
+
 async function savePreset(presetKey) {
   const session = await requireAuth("/auth/login.html");
   if (!session) return;
@@ -120,20 +169,30 @@ function bindPresetButtons() {
   document.querySelectorAll(".preset-btn").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const key = btn.dataset.preset;
+      currentPreset = key;
+      currentSettings = { ...THEME_PRESETS[key] };
+      updatePreview();
+    });
+  });
+
+  const applyBtn = document.getElementById("apply-preset-btn");
+  if (applyBtn) {
+    applyBtn.addEventListener("click", async () => {
       try {
-        btn.setAttribute("disabled", "true");
-        await savePreset(key);
+        applyBtn.setAttribute("disabled", "true");
+        await savePreset(currentPreset);
         window.location.href = "/onboarding/platforms.html";
       } catch (err) {
         alert("Tema uygulanamadı: " + err.message);
       } finally {
-        btn.removeAttribute("disabled");
+        applyBtn.removeAttribute("disabled");
       }
     });
-  });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   bindPresetButtons();
+  updatePreview();
 });
 
