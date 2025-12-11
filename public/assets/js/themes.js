@@ -13,6 +13,7 @@ let originalSettings = {};
 let userProfile = null;
 let linkDrafts = [];
 let originalLinks = [];
+let publicUrl = "";
 
 function cloneLinks(arr = []) {
   return arr.map((l) => ({ ...l }));
@@ -557,6 +558,74 @@ function bindSettings() {
   }
 }
 
+function bindPublicActions() {
+  const viewBtn = document.getElementById("view-public-btn");
+  const copyBtn = document.getElementById("copy-link-btn");
+  const qrBtn = document.getElementById("qr-btn");
+  const qrModal = document.getElementById("qr-modal");
+  const qrImage = document.getElementById("qr-image");
+  const qrLink = document.getElementById("qr-link");
+  const qrClose = document.getElementById("qr-close");
+
+  const ensurePublicUrl = () => {
+    if (!publicUrl) {
+      const username = userProfile?.username;
+      if (!username) return "";
+      publicUrl = `${window.location.origin}/${username}`;
+    }
+    return publicUrl;
+  };
+
+  viewBtn?.addEventListener("click", () => {
+    const url = ensurePublicUrl();
+    if (!url) {
+      alert("Kullanıcı adı bulunamadı. Lütfen profilinizi kaydedin.");
+      return;
+    }
+    window.open(url, "_blank", "noopener");
+  });
+
+  copyBtn?.addEventListener("click", async () => {
+    const url = ensurePublicUrl();
+    if (!url) {
+      alert("Kullanıcı adı bulunamadı. Lütfen profilinizi kaydedin.");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      alert("Profil linki kopyalandı!");
+    } catch (_err) {
+      const ok = window.prompt("Kopyalamak için CMD/CTRL+C yapın:", url);
+      if (!ok) return;
+    }
+  });
+
+  const openQr = () => {
+    const url = ensurePublicUrl();
+    if (!url) {
+      alert("Kullanıcı adı bulunamadı. Lütfen profilinizi kaydedin.");
+      return;
+    }
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(url)}`;
+    if (qrImage) qrImage.src = qrUrl;
+    if (qrLink) qrLink.textContent = url;
+    qrModal?.classList.remove("hidden");
+    qrModal?.classList.add("flex");
+  };
+
+  qrBtn?.addEventListener("click", openQr);
+  qrClose?.addEventListener("click", () => {
+    qrModal?.classList.add("hidden");
+    qrModal?.classList.remove("flex");
+  });
+  qrModal?.addEventListener("click", (e) => {
+    if (e.target === qrModal) {
+      qrModal.classList.add("hidden");
+      qrModal.classList.remove("flex");
+    }
+  });
+}
+
 // -------------------
 // Links: draft mode (only saved on Save Changes)
 // -------------------
@@ -750,6 +819,9 @@ async function init() {
   const profile = await getProfileByUserId(userId);
   console.log("Profile loaded:", profile);
   loadSettings(profile);
+  if (profile?.username) {
+    publicUrl = `${window.location.origin}/${profile.username}`;
+  }
   // Load links into drafts
   const links = await listLinks(userId);
   linkDrafts = cloneLinks(links);
@@ -759,6 +831,8 @@ async function init() {
   bindSettings();
   console.log("Calling bindLinkActions()");
   bindLinkActions();
+  console.log("Calling bindPublicActions()");
+  bindPublicActions();
   console.log("Calling bindSave()");
   bindSave();
   console.log("Init complete");

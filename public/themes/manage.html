@@ -113,7 +113,19 @@
 <h1 class="text-copy-light dark:text-copy-dark text-3xl font-bold leading-tight tracking-tight">Appearance & Links</h1>
 <p class="text-copy-light-secondary dark:text-copy-dark-secondary text-base font-normal leading-normal">Manage your links and customize your bio page in one place.</p>
 </div>
-<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<button id="view-public-btn" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-base">open_in_new</span>
+<span>View</span>
+</button>
+<button id="copy-link-btn" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-base">content_copy</span>
+<span>Copy Link</span>
+</button>
+<button id="qr-btn" class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-base">qr_code_2</span>
+<span>QR</span>
+</button>
 <button id="discard-btn" class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-slate-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 text-sm font-medium leading-normal tracking-wide hover:bg-slate-200 dark:hover:bg-slate-700">
 <span>Discard</span>
 </button>
@@ -329,6 +341,21 @@
 <script src="/env.js"></script>
 <script type="module" src="/assets/js/navigation.js"></script>
 <script type="module" src="/assets/js/themes.js"></script>
+<!-- QR Modal -->
+<div id="qr-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm">
+  <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-slate-800 max-w-sm w-full mx-4 text-center">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100">Profil QR Kodu</h3>
+      <button id="qr-close" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="flex flex-col items-center gap-4">
+      <img id="qr-image" class="w-48 h-48 rounded-xl border border-slate-200 dark:border-slate-700 bg-white" alt="QR Code"/>
+      <p id="qr-link" class="text-sm text-slate-600 dark:text-slate-300 break-all"></p>
+    </div>
+  </div>
+</div>
 <script>
 // Tab switching
 document.addEventListener("DOMContentLoaded", () => {
