@@ -347,6 +347,29 @@ function bindSettings() {
     });
   }
 
+  // Background image presets (including clear)
+  const bgImageButtons = document.querySelectorAll("[data-bg-image]");
+  const successEl = document.getElementById("bg-image-success");
+  bgImageButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const imageUrl = e.currentTarget.dataset.bgImage || "";
+      currentSettings.background_image = imageUrl;
+      // Clear color selections
+      document.querySelectorAll('input[name="background-color"]').forEach((r) => {
+        r.checked = false;
+        r.closest("label").classList.remove("ring-primary");
+      });
+      // Hide custom color picker if open
+      if (customBgInput) customBgInput.classList.add("hidden");
+      // Toggle success badge
+      if (successEl) {
+        if (imageUrl) successEl.classList.remove("hidden");
+        else successEl.classList.add("hidden");
+      }
+      updatePreview();
+    });
+  });
+
   // Button color
   document.querySelectorAll('input[name="button-color"]').forEach((radio) => {
     radio.addEventListener("change", (e) => {
