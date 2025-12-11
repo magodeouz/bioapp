@@ -122,8 +122,12 @@ function renderPreviewLinks(containerId, links = [], themeSettings = {}) {
   const visibleLinks = links.filter((link) => link.accent === "primary");
   
   if (!visibleLinks.length) {
-    container.innerHTML =
-      '<p class="text-center text-gray-500 dark:text-gray-400">Henüz link eklenmedi.</p>';
+    const placeholder = document.createElement("a");
+    placeholder.href = "#";
+    placeholder.className =
+      "flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 text-base font-bold leading-normal shadow-lg transition-transform hover:scale-[1.02] vibrant-gradient-bg text-white";
+    placeholder.textContent = "Örnek Link";
+    container.appendChild(placeholder);
     return;
   }
   
@@ -207,12 +211,17 @@ export async function updatePreview() {
 
   // Load profile data
   try {
-    const profile = await getProfileByUserId(userId);
-    const links = await listLinks(userId);
+    const profile = (await getProfileByUserId(userId).catch(() => null)) || {};
+    const links = (await listLinks(userId).catch(() => [])) || [];
 
     // Update avatar
-    if (avatar && profile.avatar_url) {
-      avatar.style.backgroundImage = `url("${profile.avatar_url}")`;
+    if (avatar) {
+      if (profile.avatar_url) {
+        avatar.style.backgroundImage = `url("${profile.avatar_url}")`;
+      } else {
+        avatar.style.backgroundImage =
+          "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #c7d2fe 100%)";
+      }
     }
 
     // Update username
@@ -222,7 +231,7 @@ export async function updatePreview() {
 
     // Update bio
     if (bio) {
-      bio.textContent = profile.bio || "";
+      bio.textContent = profile.bio || "Sayfama hoş geldin!";
     }
 
     // Update social links
