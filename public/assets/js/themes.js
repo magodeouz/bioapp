@@ -208,10 +208,30 @@ export async function updatePreview() {
 
   if (!wrapper) return;
 
+  // Fallback content to ensure preview is never empty
+  const fallbackProfile = {
+    display_name: "username",
+    username: "username",
+    bio: "Sayfama hoş geldin!",
+    avatar_url: "",
+    socials: [],
+    highlight_title: "",
+    highlight_body: "",
+    highlight_url: "",
+  };
+  let profile = fallbackProfile;
+  let links = [
+    { title: "My Website", url: "#", accent: "primary" },
+    { title: "Instagram", url: "#", accent: "primary" },
+    { title: "YouTube", url: "#", accent: "primary" },
+  ];
+
   // Load profile data
   try {
-    const profile = await getProfileByUserId(userId).catch(() => null);
-    const links = await listLinks(userId).catch(() => []);
+    const fetchedProfile = await getProfileByUserId(userId).catch(() => null);
+    const fetchedLinks = await listLinks(userId).catch(() => []);
+    if (fetchedProfile) profile = fetchedProfile;
+    if (fetchedLinks?.length) links = fetchedLinks;
 
     // Update avatar
     if (avatar) {
@@ -316,6 +336,15 @@ export async function updatePreview() {
     }
   } catch (err) {
     console.error("Error loading preview data:", err);
+    // Use fallback profile/links if fetch fails
+    renderPreviewSocial("preview-social-links", profile.socials || [], {
+      text_color: currentSettings.text_color,
+    });
+    renderPreviewLinks("preview-links", links, {
+      button_color: currentSettings.button_color,
+      button_shape: currentSettings.button_shape,
+      text_color: currentSettings.text_color,
+    });
   }
 }
 
