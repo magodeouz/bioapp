@@ -32,7 +32,7 @@ function renderLinks(containerId, links = [], themeSettings = {}) {
     return;
   }
   
-  const buttonColor = themeSettings.button_color || "#4F46E5"; // hex | gradient | glass | outline
+  const buttonColor = themeSettings.button_color || "#4F46E5";
   const buttonShape = themeSettings.button_shape || "pill";
   
   // Determine button shape classes
@@ -53,19 +53,14 @@ function renderLinks(containerId, links = [], themeSettings = {}) {
       `flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden ${shapeClass} h-14 px-5 text-base font-bold leading-normal shadow-lg transition-transform hover:scale-[1.02]`;
     
     if (link.accent === "primary") {
-      if (buttonColor === "glass") {
-        btn.className = `${baseClasses} text-white bg-white/20 backdrop-blur border border-white/40 shadow-xl`;
-      } else if (buttonColor === "outline") {
-        btn.className = `${baseClasses} text-[#111618] dark:text-white bg-transparent border border-current`;
+      btn.className = `${baseClasses} text-white`;
+      // Apply button color
+      if (buttonColor.startsWith("#")) {
+        btn.style.backgroundColor = buttonColor;
+      } else if (buttonColor === "gradient") {
+        btn.classList.add("vibrant-gradient-bg");
       } else {
-        btn.className = `${baseClasses} text-white`;
-        if (buttonColor === "gradient") {
-          btn.classList.add("vibrant-gradient-bg");
-        } else if (buttonColor.startsWith("#")) {
-          btn.style.backgroundColor = buttonColor;
-        } else {
-          btn.style.backgroundColor = buttonColor;
-        }
+        btn.style.backgroundColor = buttonColor;
       }
     } else {
       btn.className = `${baseClasses} bg-white dark:bg-surface-dark text-[#111618] dark:text-white`;

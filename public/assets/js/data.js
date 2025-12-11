@@ -51,6 +51,27 @@ export async function deleteLink(id) {
   if (error) throw error;
 }
 
+// Replace all links of a user with a provided list (keeps order)
+export async function replaceLinks(userId, links) {
+  // Remove existing links
+  const { error: delErr } = await supabase.from("links").delete().eq("user_id", userId);
+  if (delErr) throw delErr;
+
+  if (!links || !links.length) return [];
+
+  const payload = links.map((link, idx) => ({
+    title: link.title,
+    url: link.url,
+    accent: link.accent || "primary",
+    user_id: userId,
+    order: idx,
+  }));
+
+  const { data, error } = await supabase.from("links").insert(payload).select();
+  if (error) throw error;
+  return data;
+}
+
 // Themes
 export async function listThemes() {
   const { data, error } = await supabase.from("themes").select("*").order("created_at", { ascending: false });

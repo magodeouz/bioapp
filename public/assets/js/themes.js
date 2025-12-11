@@ -1,10 +1,22 @@
 import { requireAuth, bindLogout } from "./auth.js";
-import { upsertProfile, getProfileByUserId, listLinks, uploadBackgroundImage } from "./data.js";
+import {
+  upsertProfile,
+  getProfileByUserId,
+  listLinks,
+  replaceLinks,
+  uploadBackgroundImage,
+} from "./data.js";
 
 let userId = null;
 let currentSettings = {};
 let originalSettings = {};
 let userProfile = null;
+let linkDrafts = [];
+let originalLinks = [];
+
+function cloneLinks(arr = []) {
+  return arr.map((l) => ({ ...l }));
+}
 
 async function ensureProfile(session) {
   try {
@@ -31,7 +43,7 @@ function loadSettings(profile) {
   currentSettings = {
     background_color: profile.background_color || "#f8fafc",
     background_image: profile.background_image || "",
-    button_color: profile.button_color || "#4F46E5", // can be hex, gradient, glass, outline
+    button_color: profile.button_color || "#4F46E5",
     text_color: profile.text_color || "#1a1a1a",
     font_family: profile.font_family || "Inter",
     button_shape: profile.button_shape || "pill",
@@ -117,20 +129,17 @@ function renderPreviewLinks(containerId, links = [], themeSettings = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
   container.innerHTML = "";
-
+  
   // Filter only visible links (accent === "primary")
-  let visibleLinks = links.filter((link) => link.accent === "primary");
-
-  // Placeholder links if none
+  const visibleLinks = links.filter((link) => link.accent === "primary");
+  
   if (!visibleLinks.length) {
-    visibleLinks = [
-      { title: "My Website", url: "#", accent: "primary" },
-      { title: "Instagram", url: "#", accent: "primary" },
-      { title: "YouTube", url: "#", accent: "primary" },
-    ];
+    container.innerHTML =
+      '<p class="text-center text-gray-500 dark:text-gray-400">Henüz link eklenmedi.</p>';
+    return;
   }
   
-  const buttonColor = themeSettings.button_color || "#4F46E5"; // hex | gradient | glass | outline
+  const buttonColor = themeSettings.button_color || "#4F46E5";
   const buttonShape = themeSettings.button_shape || "pill";
   
   // Determine button shape classes
@@ -151,19 +160,14 @@ function renderPreviewLinks(containerId, links = [], themeSettings = {}) {
       `flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden ${shapeClass} h-14 px-5 text-base font-bold leading-normal shadow-lg transition-transform hover:scale-[1.02]`;
     
     if (link.accent === "primary") {
-      if (buttonColor === "glass") {
-        btn.className = `${baseClasses} text-white bg-white/20 backdrop-blur border border-white/40 shadow-xl`;
-      } else if (buttonColor === "outline") {
-        btn.className = `${baseClasses} text-[#111618] dark:text-white bg-transparent border border-current`;
+      btn.className = `${baseClasses} text-white`;
+      // Apply button color
+      if (buttonColor.startsWith("#")) {
+        btn.style.backgroundColor = buttonColor;
+      } else if (buttonColor === "gradient") {
+        btn.classList.add("vibrant-gradient-bg");
       } else {
-        btn.className = `${baseClasses} text-white`;
-        if (buttonColor === "gradient") {
-          btn.classList.add("vibrant-gradient-bg");
-        } else if (buttonColor.startsWith("#")) {
-          btn.style.backgroundColor = buttonColor;
-        } else {
-          btn.style.backgroundColor = buttonColor;
-        }
+        btn.style.backgroundColor = buttonColor;
       }
     } else {
       btn.className = `${baseClasses} bg-white dark:bg-slate-800 text-[#111618] dark:text-white`;
@@ -208,50 +212,27 @@ export async function updatePreview() {
 
   if (!wrapper) return;
 
-  // Fallback content to ensure preview is never empty
-  const fallbackProfile = {
-    display_name: "username",
-    username: "username",
-    bio: "Sayfama hoş geldin!",
-    avatar_url: "",
-    socials: [],
-    highlight_title: "",
-    highlight_body: "",
-    highlight_url: "",
-  };
-  let profile = fallbackProfile;
-  let links = [
-    { title: "My Website", url: "#", accent: "primary" },
-    { title: "Instagram", url: "#", accent: "primary" },
-    { title: "YouTube", url: "#", accent: "primary" },
-  ];
-
-  // Load profile data
+  // Load profile data (use cached if available)
   try {
-    const fetchedProfile = await getProfileByUserId(userId).catch(() => null);
-    const fetchedLinks = await listLinks(userId).catch(() => []);
-    if (fetchedProfile) profile = fetchedProfile;
-    if (fetchedLinks?.length) links = fetchedLinks;
+    if (!userProfile) {
+      userProfile = await getProfileByUserId(userId);
+    }
+    const profile = userProfile;
+    const links = linkDrafts || [];
 
     // Update avatar
-    if (avatar) {
-      if (profile?.avatar_url) {
-        avatar.style.backgroundImage = `url("${profile.avatar_url}")`;
-      } else {
-        avatar.style.backgroundImage =
-          "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #c7d2fe 100%)";
-      }
+    if (avatar && profile.avatar_url) {
+      avatar.style.backgroundImage = `url("${profile.avatar_url}")`;
     }
 
     // Update username
     if (username) {
-      username.textContent =
-        profile?.display_name || profile?.username || "username";
+      username.textContent = profile.display_name || profile.username || "username";
     }
 
     // Update bio
     if (bio) {
-      bio.textContent = profile?.bio || "Sayfama hoş geldin!";
+      bio.textContent = profile.bio || "";
     }
 
     // Update social links
@@ -261,11 +242,7 @@ export async function updatePreview() {
       text_color: currentSettings.text_color,
     };
 
-    renderPreviewSocial(
-      "preview-social-links",
-      profile?.socials || [],
-      themeSettings
-    );
+    renderPreviewSocial("preview-social-links", profile?.socials || [], themeSettings);
 
     // Update links (only visible ones)
     renderPreviewLinks("preview-links", links, themeSettings);
@@ -312,10 +289,9 @@ export async function updatePreview() {
         backgroundOverlay.style.backgroundSize = "cover";
         backgroundOverlay.style.display = "block";
       }
-    } else {
-      const bgColor = currentSettings.background_color || "#f8fafc";
+    } else if (currentSettings.background_color.startsWith("#")) {
       if (backgroundOverlay) {
-        backgroundOverlay.style.backgroundColor = bgColor;
+        backgroundOverlay.style.backgroundColor = currentSettings.background_color;
         backgroundOverlay.style.backgroundImage = "none";
         backgroundOverlay.style.display = "block";
       }
@@ -336,15 +312,6 @@ export async function updatePreview() {
     }
   } catch (err) {
     console.error("Error loading preview data:", err);
-    // Use fallback profile/links if fetch fails
-    renderPreviewSocial("preview-social-links", profile.socials || [], {
-      text_color: currentSettings.text_color,
-    });
-    renderPreviewLinks("preview-links", links, {
-      button_color: currentSettings.button_color,
-      button_shape: currentSettings.button_shape,
-      text_color: currentSettings.text_color,
-    });
   }
 }
 
@@ -389,29 +356,6 @@ function bindSettings() {
       updatePreview();
     });
   }
-
-  // Background image presets (including clear)
-  const bgImageButtons = document.querySelectorAll("[data-bg-image]");
-  const successEl = document.getElementById("bg-image-success");
-  bgImageButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const imageUrl = e.currentTarget.dataset.bgImage || "";
-      currentSettings.background_image = imageUrl;
-      // Clear color selections
-      document.querySelectorAll('input[name="background-color"]').forEach((r) => {
-        r.checked = false;
-        r.closest("label").classList.remove("ring-primary");
-      });
-      // Hide custom color picker if open
-      if (customBgInput) customBgInput.classList.add("hidden");
-      // Toggle success badge
-      if (successEl) {
-        if (imageUrl) successEl.classList.remove("hidden");
-        else successEl.classList.add("hidden");
-      }
-      updatePreview();
-    });
-  });
 
   // Button color
   document.querySelectorAll('input[name="button-color"]').forEach((radio) => {
@@ -613,6 +557,133 @@ function bindSettings() {
   }
 }
 
+// -------------------
+// Links: draft mode (only saved on Save Changes)
+// -------------------
+function renderLinkList() {
+  const container = document.getElementById("links-list");
+  if (!container) return;
+  container.innerHTML = "";
+
+  if (!linkDrafts.length) {
+    container.innerHTML =
+      '<p class="text-sm text-slate-500 dark:text-slate-400">Henüz link eklenmedi.</p>';
+    updatePreview();
+    return;
+  }
+
+  linkDrafts.forEach((link) => {
+    const item = document.createElement("div");
+    item.className =
+      "flex items-center gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-lg shadow-sm border border-slate-200/80 dark:border-slate-800/80";
+    item.innerHTML = `
+      <div class="text-slate-400 dark:text-slate-500 cursor-grab">
+        <span class="material-symbols-outlined text-2xl">drag_indicator</span>
+      </div>
+      <div class="flex flex-col justify-center flex-1 min-w-0">
+        <p class="text-slate-800 dark:text-slate-100 text-base font-medium leading-normal line-clamp-1">${link.title}</p>
+        <p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">${link.url}</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-edit="${link.id}">
+          <span class="material-symbols-outlined text-xl">edit</span>
+        </button>
+        <button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-delete="${link.id}">
+          <span class="material-symbols-outlined text-xl">delete</span>
+        </button>
+        <label class="relative flex h-[31px] w-[51px] cursor-pointer items-center rounded-full border-none bg-slate-200 dark:bg-slate-700 p-0.5 has-[:checked]:bg-blue-600 transition-colors">
+          <input class="invisible absolute" type="checkbox" ${link.accent === "primary" ? "checked" : ""} data-toggle="${link.id}"/>
+          <div class="h-full w-[27px] rounded-full bg-white transition-transform ease-in-out duration-200 ${
+            link.accent === "primary" ? "translate-x-[20px]" : ""
+          }" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px, rgba(0, 0, 0, 0.04) 0px 2px 1px;"></div>
+        </label>
+      </div>
+    `;
+    container.appendChild(item);
+  });
+  updatePreview();
+}
+
+function bindLinkActions() {
+  const form = document.getElementById("link-form");
+
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (!(target instanceof HTMLElement)) return;
+    const deleteId = target.closest("[data-delete]")?.getAttribute("data-delete");
+    const editId = target.closest("[data-edit]")?.getAttribute("data-edit");
+    const toggleId = target.closest("[data-toggle]")?.getAttribute("data-toggle");
+
+    if (deleteId) {
+      linkDrafts = linkDrafts.filter((l) => l.id !== deleteId);
+      renderLinkList();
+    }
+    if (editId) {
+      const link = linkDrafts.find((l) => l.id === editId);
+      if (link) {
+        document.getElementById("link-title").value = link.title;
+        document.getElementById("link-url").value = link.url;
+        document.getElementById("link-accent").value = link.accent || "primary";
+        document.getElementById("link-submit").textContent = "Güncelle";
+        form.dataset.editing = editId;
+      }
+    }
+    if (toggleId) {
+      const link = linkDrafts.find((l) => l.id === toggleId);
+      if (link) {
+        link.accent = link.accent === "primary" ? "secondary" : "primary";
+        renderLinkList();
+      }
+    }
+  });
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const title = document.getElementById("link-title")?.value.trim();
+    const url = document.getElementById("link-url")?.value.trim();
+    const accent = document.getElementById("link-accent")?.value || "primary";
+    if (!title || !url) return alert("Başlık ve URL gerekli");
+
+    const editingId = form.dataset.editing;
+    if (editingId) {
+      const idx = linkDrafts.findIndex((l) => l.id === editingId);
+      if (idx > -1) {
+        linkDrafts[idx] = { ...linkDrafts[idx], title, url, accent };
+      }
+      delete form.dataset.editing;
+      document.getElementById("link-submit").textContent = "Link Ekle";
+    } else {
+      const newLink = {
+        id: `draft-${Date.now()}`,
+        title,
+        url,
+        accent,
+      };
+      linkDrafts.push(newLink);
+    }
+    form.reset();
+    renderLinkList();
+  });
+}
+
+async function persistLinkDrafts() {
+  await replaceLinks(
+    userId,
+    linkDrafts.map((l, idx) => ({ ...l, order: idx }))
+  );
+  originalLinks = cloneLinks(linkDrafts);
+}
+
+function hasLinkChanges() {
+  const a = JSON.stringify(
+    linkDrafts.map((l, idx) => ({ title: l.title, url: l.url, accent: l.accent || "primary", order: idx }))
+  );
+  const b = JSON.stringify(
+    originalLinks.map((l, idx) => ({ title: l.title, url: l.url, accent: l.accent || "primary", order: idx }))
+  );
+  return a !== b;
+}
+
 function bindSave() {
   const saveBtn = document.getElementById("save-btn");
   const discardBtn = document.getElementById("discard-btn");
@@ -638,10 +709,15 @@ function bindSave() {
           username,
           ...currentSettings,
         });
+
+        if (hasLinkChanges()) {
+          await persistLinkDrafts();
+        }
+
         // Update userProfile with new settings
         userProfile = { ...userProfile, ...currentSettings, username };
         originalSettings = { ...currentSettings };
-        alert("Tema ayarları kaydedildi!");
+        alert("Tema ve link ayarları kaydedildi!");
       } catch (err) {
         alert("Ayarlar kaydedilemedi: " + err.message);
       } finally {
@@ -674,8 +750,15 @@ async function init() {
   const profile = await getProfileByUserId(userId);
   console.log("Profile loaded:", profile);
   loadSettings(profile);
+  // Load links into drafts
+  const links = await listLinks(userId);
+  linkDrafts = cloneLinks(links);
+  originalLinks = cloneLinks(links);
+  renderLinkList();
   console.log("Calling bindSettings()");
   bindSettings();
+  console.log("Calling bindLinkActions()");
+  bindLinkActions();
   console.log("Calling bindSave()");
   bindSave();
   console.log("Init complete");
