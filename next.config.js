@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Vercel handles rewrites via vercel.json
-  // Static HTML files in public/ are served automatically
+  // Keep the rewrite for local/dev; Vercel also has vercel.json for production.
+  async rewrites() {
+    return [
+      // Public bio page: /username -> /profile/index.html
+      { source: "/:username", destination: "/profile/index.html" },
+    ];
+  },
 };
 
 export default nextConfig;
